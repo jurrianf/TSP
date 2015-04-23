@@ -12,16 +12,15 @@ import java.util.ArrayList;
  *
  * @author Johan
  */
-public class Route {
+public class Order {
+    private ArrayList<Vak> vakken = new ArrayList<>();
+
+    public ArrayList<Vak> getVakken() {
+        return vakken;
+    }
     
-    private ArrayList<Vak> volgorde = new ArrayList<>();
-
-    private int afstand;
-
-    public int berekenAfstand(ArrayList<Vak> volgorde) {
-        int afstand;
-        afstand = volgorde.size() * Vak.getGroote();
-        
-        return afstand;
+    public void addVak(Vak vak)
+    {
+        vakken.add(vak);
     }
 }
