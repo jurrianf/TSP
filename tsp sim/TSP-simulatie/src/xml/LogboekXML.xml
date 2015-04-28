@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<logboek>
+    <Record>
+        <Afstand>300</Afstand>
+        <Algoritme>greedy</Algoritme>
+        <AantalPaketten>20</AantalPaketten>
+        <Dimensie>50</Dimensie>
+    </Record>
+    <Record>
+        <Afstand>225</Afstand>
+        <Algoritme>neerest</Algoritme>
+        <AantalPaketten>25</AantalPaketten>
+        <Dimensie>24</Dimensie>
+    </Record>  
+</logboek>
