@@ -6,6 +6,7 @@
 
 package tsp.simulatie;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -15,16 +16,45 @@ import javax.swing.JFrame;
 public class SchermTest extends JFrame{
 
     public SchermTest() {
-        JFrame scherm = new JFrame();
-        scherm.setVisible(true);
-        scherm.setSize(1280, 720);
+
+        int rows = 20;
+        int cols = 20;
+        int cellWidth = 20;
+        int Lineborder = 1;
+
+        Grid mainPanel = new Grid(rows, cols, cellWidth, Lineborder);
+
+        JFrame frame = new JFrame("Color Grid Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(mainPanel);
+        frame.pack();
+        frame.setLocationByPlatform(true);
+        frame.setVisible(true);
         
-        scherm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        SelectScherm tekenen = new SelectScherm();
         
-        scherm.add(tekenen);
+        
+
+        //MouseListener myListener = new MouseListener();
+        //addMouseListener(myListener);
     }
-    
-    
+     
+    private void makeOrder(Grid grid){
+        Order order = new Order();
+        Vak[][] vakken;
+        
+        vakken = grid.getAlleVakken();
+        
+        for (int row = 0; row < vakken.length; row++) {
+            for (int col = 0; col < vakken[row].length; col++) {
+                if(vakken[row][col].getIsGeselecteerd())
+                {
+                    order.addVak(vakken[row][col]);
+                }
+            }
+        }
+    }
 }
+    
+    
+

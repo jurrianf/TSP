@@ -12,24 +12,35 @@ package tsp.simulatie;
  */
 public class Vak {
     private boolean isGeselecteerd;
-    private int locatie;
+    private Locatie locatie;
     private int vakVolgorde;
     static private int Groote = 50;
 
-    public Vak(int locatie) {
-        this.locatie = locatie;
+    public Vak(int x, int y) {
+        this.locatie = new Locatie(x, y);
+        this.isGeselecteerd = false;
     }
 
     public boolean getIsGeselecteerd() {
         return isGeselecteerd;
     }
 
-    public void setIsGeselecteerd(boolean isGeselecteerd) {
-        this.isGeselecteerd = isGeselecteerd;
+    public void isGeselecteerd() {
+        this.isGeselecteerd = !this.isGeselecteerd;
     }
 
-    public int getLocatie() {
-        return locatie;
+    public String getLocatie() {
+        return locatie.toString();
+    }
+    
+    public int getX()
+    {
+        return locatie.getX();
+    }
+    
+    public int getY()
+    {
+        return locatie.getY();
     }
 
     static public int getGroote() {

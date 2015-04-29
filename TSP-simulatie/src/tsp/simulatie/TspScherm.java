@@ -29,37 +29,7 @@ public class TspScherm extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton6 = new javax.swing.JToggleButton();
-        jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
-        jToggleButton10 = new javax.swing.JToggleButton();
-        jToggleButton11 = new javax.swing.JToggleButton();
-        jToggleButton12 = new javax.swing.JToggleButton();
-        jToggleButton13 = new javax.swing.JToggleButton();
-        jToggleButton14 = new javax.swing.JToggleButton();
-        jToggleButton15 = new javax.swing.JToggleButton();
-        jToggleButton16 = new javax.swing.JToggleButton();
-        jToggleButton17 = new javax.swing.JToggleButton();
-        jToggleButton18 = new javax.swing.JToggleButton();
-        jToggleButton19 = new javax.swing.JToggleButton();
-        jToggleButton20 = new javax.swing.JToggleButton();
-        jToggleButton21 = new javax.swing.JToggleButton();
-        jToggleButton22 = new javax.swing.JToggleButton();
-        jToggleButton23 = new javax.swing.JToggleButton();
-        jToggleButton24 = new javax.swing.JToggleButton();
-        jToggleButton25 = new javax.swing.JToggleButton();
-        jToggleButton26 = new javax.swing.JToggleButton();
-        jToggleButton27 = new javax.swing.JToggleButton();
-        jToggleButton28 = new javax.swing.JToggleButton();
-        jToggleButton29 = new javax.swing.JToggleButton();
-        jToggleButton30 = new javax.swing.JToggleButton();
-        jToggleButton31 = new javax.swing.JToggleButton();
-        jToggleButton32 = new javax.swing.JToggleButton();
-        jToggleButton33 = new javax.swing.JToggleButton();
+        jPanelSelecties = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jComboBoxSelectAlgoritme = new javax.swing.JComboBox();
         jLabelActies = new javax.swing.JLabel();
@@ -96,103 +66,20 @@ public class TspScherm extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(240, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel1.setMaximumSize(new java.awt.Dimension(836, 696));
-        jPanel1.setMinimumSize(new java.awt.Dimension(836, 696));
-        jPanel1.setPreferredSize(new java.awt.Dimension(836, 696));
-        jPanel1.setVerifyInputWhenFocusTarget(false);
-        jPanel1.setLayout(new java.awt.GridLayout(6, 5, 6, 6));
+        jPanelSelecties.setBackground(new java.awt.Color(240, 0, 0));
+        jPanelSelecties.setForeground(new java.awt.Color(255, 0, 0));
+        jPanelSelecties.setMaximumSize(new java.awt.Dimension(836, 696));
+        jPanelSelecties.setMinimumSize(new java.awt.Dimension(836, 696));
+        jPanelSelecties.setPreferredSize(new java.awt.Dimension(836, 696));
+        jPanelSelecties.setVerifyInputWhenFocusTarget(false);
+        int rows = 20;
+        int cols = 20;
+        int cellWidth = 20;
+        int Lineborder = 1;
 
-        jToggleButton1.setText("jToggleButton1");
-        jPanel1.add(jToggleButton1);
+        Grid mainPanel = new Grid(rows, cols, cellWidth, Lineborder);
 
-        jToggleButton2.setText("jToggleButton2");
-        jPanel1.add(jToggleButton2);
-
-        jToggleButton3.setText("jToggleButton3");
-        jPanel1.add(jToggleButton3);
-
-        jToggleButton4.setText("jToggleButton4");
-        jPanel1.add(jToggleButton4);
-
-        jToggleButton5.setText("jToggleButton5");
-        jPanel1.add(jToggleButton5);
-
-        jToggleButton9.setText("jToggleButton9");
-        jPanel1.add(jToggleButton9);
-
-        jToggleButton10.setText("jToggleButton10");
-        jPanel1.add(jToggleButton10);
-
-        jToggleButton11.setText("jToggleButton11");
-        jPanel1.add(jToggleButton11);
-
-        jToggleButton12.setText("jToggleButton12");
-        jPanel1.add(jToggleButton12);
-
-        jToggleButton13.setText("jToggleButton13");
-        jPanel1.add(jToggleButton13);
-
-        jToggleButton14.setText("jToggleButton14");
-        jPanel1.add(jToggleButton14);
-
-        jToggleButton15.setText("jToggleButton15");
-        jPanel1.add(jToggleButton15);
-
-        jToggleButton16.setText("jToggleButton16");
-        jPanel1.add(jToggleButton16);
-
-        jToggleButton17.setText("jToggleButton16");
-        jPanel1.add(jToggleButton17);
-
-        jToggleButton18.setText("jToggleButton16");
-        jPanel1.add(jToggleButton18);
-
-        jToggleButton19.setText("jToggleButton16");
-        jPanel1.add(jToggleButton19);
-
-        jToggleButton20.setText("jToggleButton16");
-        jPanel1.add(jToggleButton20);
-
-        jToggleButton21.setText("jToggleButton16");
-        jPanel1.add(jToggleButton21);
-
-        jToggleButton22.setText("jToggleButton16");
-        jPanel1.add(jToggleButton22);
-
-        jToggleButton23.setText("jToggleButton16");
-        jPanel1.add(jToggleButton23);
-
-        jToggleButton24.setText("jToggleButton16");
-        jPanel1.add(jToggleButton24);
-
-        jToggleButton25.setText("jToggleButton16");
-        jPanel1.add(jToggleButton25);
-
-        jToggleButton26.setText("jToggleButton16");
-        jPanel1.add(jToggleButton26);
-
-        jToggleButton27.setText("jToggleButton16");
-        jPanel1.add(jToggleButton27);
-
-        jToggleButton28.setText("jToggleButton16");
-        jPanel1.add(jToggleButton28);
-
-        jToggleButton29.setText("jToggleButton16");
-        jPanel1.add(jToggleButton29);
-
-        jToggleButton30.setText("jToggleButton16");
-        jPanel1.add(jToggleButton30);
-
-        jToggleButton31.setText("jToggleButton16");
-        jPanel1.add(jToggleButton31);
-
-        jToggleButton32.setText("jToggleButton16");
-        jPanel1.add(jToggleButton32);
-
-        jToggleButton33.setText("jToggleButton16");
-        jPanel1.add(jToggleButton33);
+        jPanelSelecties.add(mainPanel);
 
         jPanel2.setBackground(new java.awt.Color(0, 240, 0));
         jPanel2.setForeground(new java.awt.Color(0, 0, 255));
@@ -409,7 +296,7 @@ public class TspScherm extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -420,7 +307,7 @@ public class TspScherm extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -497,43 +384,13 @@ public class TspScherm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelLaatsteStatistieken;
     private javax.swing.JLabel jLabelSelectedAlgoritme;
     private javax.swing.JLabel jLabeltext1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelSelecties;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableStats;
     private javax.swing.JTextField jTextFieldSelectedVakken;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton11;
-    private javax.swing.JToggleButton jToggleButton12;
-    private javax.swing.JToggleButton jToggleButton13;
-    private javax.swing.JToggleButton jToggleButton14;
-    private javax.swing.JToggleButton jToggleButton15;
-    private javax.swing.JToggleButton jToggleButton16;
-    private javax.swing.JToggleButton jToggleButton17;
-    private javax.swing.JToggleButton jToggleButton18;
-    private javax.swing.JToggleButton jToggleButton19;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton20;
-    private javax.swing.JToggleButton jToggleButton21;
-    private javax.swing.JToggleButton jToggleButton22;
-    private javax.swing.JToggleButton jToggleButton23;
-    private javax.swing.JToggleButton jToggleButton24;
-    private javax.swing.JToggleButton jToggleButton25;
-    private javax.swing.JToggleButton jToggleButton26;
-    private javax.swing.JToggleButton jToggleButton27;
-    private javax.swing.JToggleButton jToggleButton28;
-    private javax.swing.JToggleButton jToggleButton29;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton30;
-    private javax.swing.JToggleButton jToggleButton31;
-    private javax.swing.JToggleButton jToggleButton32;
-    private javax.swing.JToggleButton jToggleButton33;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton9;
     // End of variables declaration//GEN-END:variables
 }
