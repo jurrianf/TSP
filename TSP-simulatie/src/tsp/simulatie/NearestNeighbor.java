@@ -11,9 +11,23 @@ import java.util.ArrayList;
  *
  * @author Jurrian
  */
-public class NearestNeighbor {
+public class NearestNeighbor extends MyMath {
 
-    private ArrayList<Vak> geselecteerd = new ArrayList<>();
-    private ArrayList<Vak> route = new ArrayList<>();
+    private ArrayList<Vak> alleVakken = new ArrayList<Vak>();
+    private ArrayList<Vak> lijst = new ArrayList<>();
+
+    public ArrayList<Vak> getroute(Vak a) {
+
+        for (int i = 0; i < alleVakken.size(); i++) {
+            for (Vak check : alleVakken) {
+
+                if (check.getIsGeselecteerd()) {
+                    lijst.add(alleVakken.get(i));
+                }
+            }
+        }
+        System.out.println(lijst);
+        return lijst;
+    }
 
 }
