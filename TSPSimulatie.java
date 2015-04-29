@@ -22,9 +22,9 @@ public class TSPSimulatie {
         // TODO code application logic here
         Logboek l = new Logboek();
         
-        Grid grid = new Grid(3);
-        
         SchermTest scherm = new SchermTest();
+        
+        //TspScherm2 scherm = new TspScherm2();
         
         
         
