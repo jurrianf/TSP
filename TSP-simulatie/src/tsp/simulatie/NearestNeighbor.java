@@ -13,7 +13,18 @@ import java.util.ArrayList;
  */
 public class NearestNeighbor {
 
-    private ArrayList<Vak> geselecteerd = new ArrayList<>();
+    private ArrayList<Vak> alleVakken = new ArrayList<>();
     private ArrayList<Vak> route = new ArrayList<>();
+
+    public ArrayList<Vak> getAlleVakken() {
+        return alleVakken;
+    }
+
+    public ArrayList<Vak> getroute() {
+        for (int i = 0; i < alleVakken.size(); i++) {
+
+        }
+        return route;
+    }
 
 }
