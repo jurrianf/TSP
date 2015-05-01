@@ -28,7 +28,13 @@ public class TspScherm extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton6 = new javax.swing.JToggleButton();
-        jPanelSelecties = new javax.swing.JPanel();
+        int rows = 20;
+        int cols = 20;
+        int cellWidth = 20;
+        int Lineborder = 1;
+
+        grid = new Grid(rows, cols, cellWidth, Lineborder);
+        jPanelSelecties = grid;
         jPanel2 = new javax.swing.JPanel();
         jComboBoxSelectAlgoritme = new javax.swing.JComboBox();
         jLabelActies = new javax.swing.JLabel();
@@ -70,14 +76,6 @@ public class TspScherm extends javax.swing.JFrame {
         jPanelSelecties.setMinimumSize(new java.awt.Dimension(836, 696));
         jPanelSelecties.setPreferredSize(new java.awt.Dimension(836, 696));
         jPanelSelecties.setVerifyInputWhenFocusTarget(false);
-        int rows = 20;
-        int cols = 20;
-        int cellWidth = 20;
-        int Lineborder = 1;
-
-        Grid mainPanel = new Grid(rows, cols, cellWidth, Lineborder);
-
-        jPanelSelecties.add(mainPanel);
 
         jPanel2.setForeground(new java.awt.Color(0, 0, 255));
         jPanel2.setAutoscrolls(true);
@@ -320,6 +318,23 @@ public class TspScherm extends javax.swing.JFrame {
 
     private void jButtonStartSimulatieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartSimulatieActionPerformed
         // TODO add your handling code here:
+        Order order = new Order();
+        Vak[][] vakken;
+        
+        vakken = grid.getAlleVakken();
+        
+        for (int row = 0; row < vakken.length; row++) {
+            for (int col = 0; col < vakken[row].length; col++) {
+                if(vakken[row][col].getIsGeselecteerd())
+                {
+                    order.addVak(vakken[row][col]);
+                }
+            }
+        }
+        
+        Algoritme greedy = new GreedyHeuristic(order);
+        
+        System.out.println("yolo");
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
@@ -365,6 +380,7 @@ public class TspScherm extends javax.swing.JFrame {
         });
     }
 
+    private Grid grid;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogboekTonen;
     private javax.swing.JButton jButtonStartSimulatie;

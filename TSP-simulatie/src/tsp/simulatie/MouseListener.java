@@ -17,8 +17,14 @@ import javax.swing.JLabel;
 public class MouseListener extends MouseAdapter{
     
     Grid grid;
+    SchermTest scherm;
     
     public MouseListener(Grid grid) {
+        this.grid = grid;
+    }
+    
+    public MouseListener(SchermTest scherm, Grid grid) {
+        this.scherm = scherm;
         this.grid = grid;
     }
     
@@ -33,5 +39,6 @@ public class MouseListener extends MouseAdapter{
         if (e.getButton() == MouseEvent.BUTTON1) {
             grid.labelPressed((JLabel) e.getSource());
         }
+        
     }
 }
