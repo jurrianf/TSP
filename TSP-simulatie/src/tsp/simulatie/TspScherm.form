@@ -88,7 +88,9 @@
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="int rows = 20;&#xa;int cols = 20;&#xa;int cellWidth = 20;&#xa;int Lineborder = 1;&#xa;&#xa; Grid mainPanel = new Grid(rows, cols, cellWidth, Lineborder);&#xa;&#xa;jPanelSelecties.add(mainPanel);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="grid"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="int rows = 20;&#xa;int cols = 20;&#xa;int cellWidth = 20;&#xa;int Lineborder = 1;&#xa;&#xa;grid = new Grid(rows, cols, cellWidth, Lineborder);"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>

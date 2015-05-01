@@ -15,14 +15,23 @@ import javax.swing.JFrame;
  */
 public class SchermTest extends JFrame{
 
+    private Order order;
+    private Grid mainPanel;
+
+    public Grid getMainPanel() {
+        return mainPanel;
+    }
+    
+    
+    
     public SchermTest() {
 
-        int rows = 20;
-        int cols = 20;
-        int cellWidth = 20;
+        int rows = 50;
+        int cols = 25;
+        int cellWidth = 0;
         int Lineborder = 1;
 
-        Grid mainPanel = new Grid(rows, cols, cellWidth, Lineborder);
+        mainPanel = new Grid(rows, cols, cellWidth, Lineborder);
 
         JFrame frame = new JFrame("Color Grid Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,6 +39,10 @@ public class SchermTest extends JFrame{
         frame.pack();
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
+        frame.setSize(836, 696);
+        
+        MouseListener myListener = new MouseListener(this, mainPanel);
+        frame.addMouseListener(myListener);
         
         
         
@@ -39,8 +52,10 @@ public class SchermTest extends JFrame{
         //addMouseListener(myListener);
     }
      
-    private void makeOrder(Grid grid){
-        Order order = new Order();
+    Algoritme greedy;
+    
+    public void makeOrder(Grid grid){
+        order = new Order();
         Vak[][] vakken;
         
         vakken = grid.getAlleVakken();
@@ -53,6 +68,8 @@ public class SchermTest extends JFrame{
                 }
             }
         }
+        
+        greedy = new GreedyHeuristic(order);
     }
 }
     

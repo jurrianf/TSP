@@ -6,7 +6,10 @@
 
 package tsp.simulatie;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import javax.swing.JFrame;
 import org.xml.sax.SAXException;
 
 /**
@@ -22,9 +25,10 @@ public class TSPSimulatie {
         // TODO code application logic here
         Logboek l = new Logboek();
         
-        SchermTest scherm = new SchermTest();
+        TspScherm scherm = new TspScherm();
+        scherm.setVisible(true);
+        scherm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        //TspScherm2 scherm = new TspScherm2();
         
         
         
