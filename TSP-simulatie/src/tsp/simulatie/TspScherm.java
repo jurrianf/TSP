@@ -320,20 +320,19 @@ public class TspScherm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Order order = new Order();
         Vak[][] vakken;
-        
+
         vakken = grid.getAlleVakken();
-        
+
         for (int row = 0; row < vakken.length; row++) {
             for (int col = 0; col < vakken[row].length; col++) {
-                if(vakken[row][col].getIsGeselecteerd())
-                {
+                if (vakken[row][col].getIsGeselecteerd()) {
                     order.addVak(vakken[row][col]);
                 }
             }
         }
-        
-        Algoritme greedy = new GreedyHeuristic(order);
-        
+
+        Algoritme neighbor = new NearestNeighbor(order);
+
         System.out.println("yolo");
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
