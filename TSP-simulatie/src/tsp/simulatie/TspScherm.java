@@ -5,7 +5,6 @@ package tsp.simulatie;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Johan
@@ -66,7 +65,6 @@ public class TspScherm extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
-        jPanelSelecties.setBackground(new java.awt.Color(240, 0, 0));
         jPanelSelecties.setForeground(new java.awt.Color(255, 0, 0));
         jPanelSelecties.setMaximumSize(new java.awt.Dimension(836, 696));
         jPanelSelecties.setMinimumSize(new java.awt.Dimension(836, 696));
@@ -81,7 +79,6 @@ public class TspScherm extends javax.swing.JFrame {
 
         jPanelSelecties.add(mainPanel);
 
-        jPanel2.setBackground(new java.awt.Color(0, 240, 0));
         jPanel2.setForeground(new java.awt.Color(0, 0, 255));
         jPanel2.setAutoscrolls(true);
         jPanel2.setMaximumSize(new java.awt.Dimension(420, 720));
@@ -117,8 +114,12 @@ public class TspScherm extends javax.swing.JFrame {
         jLabelLaatsteStatistieken.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelLaatsteStatistieken.setText("Laatste Statistieken");
 
-        jTextFieldSelectedVakken.setText("vak, vak, vak, vak");
         jTextFieldSelectedVakken.setEnabled(false);
+        jTextFieldSelectedVakken.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSelectedVakkenActionPerformed(evt);
+            }
+        });
 
         jButtonWisSelectie.setText("Wis selectie");
         jButtonWisSelectie.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +199,7 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelLaatsteStatistieken)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +232,6 @@ public class TspScherm extends javax.swing.JFrame {
                 .addGap(54, 54, 54))
         );
 
-        jPanel3.setBackground(new java.awt.Color(240, 0, 240));
         jPanel3.setMaximumSize(new java.awt.Dimension(24, 696));
         jPanel3.setMinimumSize(new java.awt.Dimension(24, 696));
         jPanel3.setPreferredSize(new java.awt.Dimension(24, 696));
@@ -261,7 +261,6 @@ public class TspScherm extends javax.swing.JFrame {
         jLabelCord1.setText("1");
         jPanel3.add(jLabelCord1);
 
-        jPanel4.setBackground(new java.awt.Color(0, 240, 240));
         jPanel4.setMaximumSize(new java.awt.Dimension(836, 24));
         jPanel4.setMinimumSize(new java.awt.Dimension(836, 24));
         jPanel4.setPreferredSize(new java.awt.Dimension(836, 24));
@@ -327,6 +326,10 @@ public class TspScherm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonWisSelectieActionPerformed
 
+    private void jTextFieldSelectedVakkenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectedVakkenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSelectedVakkenActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -334,7 +337,7 @@ public class TspScherm extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tsp.simulatie;
 
 /**
@@ -11,6 +10,7 @@ package tsp.simulatie;
  * @author Johan
  */
 public class Record {
+
     private int afstand;
     private String soortAlgoritme;
     private int aantalPakketen;
@@ -57,7 +57,7 @@ public class Record {
 
     @Override
     public String toString() {
-        return "Record{" + "afstand=" + afstand + ", soortAlgoritme=" + soortAlgoritme + ", AantalPakketen=" + aantalPakketen + ", dimensies=" + dimensies + '}';
+        return "Record{" + "Afstand=" + afstand + ", soortAlgoritme=" + soortAlgoritme + ", AantalPakketen=" + aantalPakketen + ", dimensies=" + dimensies + '}';
     }
-    
+
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tsp.simulatie;
 
 /**
@@ -11,16 +10,13 @@ package tsp.simulatie;
  * @author Johan
  */
 public abstract class MyMath {
-    
-    public int delta(int a, int b)
-    {
-        if(a - b >= 0)
-        {
+
+    public int delta(int a, int b) {
+        if (a - b >= 0) {
             return a - b;
-        }else
-        {
-            return b-a;
+        } else {
+            return b - a;
         }
     }
-    
+
 }
