@@ -5,7 +5,6 @@ package tsp.simulatie;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Johan
@@ -14,9 +13,23 @@ public class TspScherm extends javax.swing.JFrame {
 
     int rows = 20;
     int cols = 20;
+    private Vak[][] alleVakken;
+    public String vakstring;
     /**
      * Creates new form TspScherm
      */
+    public String vakje;
+
+    {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (alleVakken[row][col].getIsGeselecteerd()) {
+                    vakstring += alleVakken[row][col];
+                }
+            }
+        }
+    }
+
     public TspScherm() {
         initComponents();
     }
@@ -243,29 +256,28 @@ public class TspScherm extends javax.swing.JFrame {
 
     private void jComboBoxSelectAlgoritmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectAlgoritmeActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboBoxSelectAlgoritmeActionPerformed
 
     private void jButtonStartSimulatieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartSimulatieActionPerformed
         // TODO add your handling code here:
         Order order = new Order();
         Vak[][] vakken;
-        
+
         vakken = grid.getAlleVakken();
-        
+
         for (int row = 0; row < vakken.length; row++) {
             for (int col = 0; col < vakken[row].length; col++) {
-                if(vakken[row][col].getIsGeselecteerd())
-                {
+                if (vakken[row][col].getIsGeselecteerd()) {
                     order.addVak(vakken[row][col]);
                 }
             }
         }
-        
+
         Algoritme enumer = new Enumeratie(order);
         Algoritme greedy = new GreedyHeuristic(order, rows);
         Algoritme nearest = new NearestNeighbor(order);
-        
+
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
@@ -279,7 +291,7 @@ public class TspScherm extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
