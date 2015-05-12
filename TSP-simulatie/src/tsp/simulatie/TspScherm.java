@@ -243,6 +243,7 @@ public class TspScherm extends javax.swing.JFrame {
 
     private void jComboBoxSelectAlgoritmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectAlgoritmeActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBoxSelectAlgoritmeActionPerformed
 
     private void jButtonStartSimulatieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartSimulatieActionPerformed
@@ -262,10 +263,9 @@ public class TspScherm extends javax.swing.JFrame {
         }
         
         Algoritme enumer = new Enumeratie(order);
-        //Algoritme greedy = new GreedyHeuristic(order, rows);
-        //Algoritme nearest = new NearestNeighbor(order);
+        Algoritme greedy = new GreedyHeuristic(order, rows);
+        Algoritme nearest = new NearestNeighbor(order);
         
-        //System.out.println("yolo");
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
