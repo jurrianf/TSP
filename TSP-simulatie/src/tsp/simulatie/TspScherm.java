@@ -19,6 +19,11 @@ public class TspScherm extends javax.swing.JFrame {
     /**
      * Creates new form TspScherm
      */
+    public TspScherm() {
+        initComponents();
+    }
+    
+    
     public String vakje() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {

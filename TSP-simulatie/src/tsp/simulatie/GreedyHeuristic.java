@@ -73,7 +73,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         {
             volgorder[i] = nextVak(volgorder[i-1]);
             
-            System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
+           // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
         }
         
         
