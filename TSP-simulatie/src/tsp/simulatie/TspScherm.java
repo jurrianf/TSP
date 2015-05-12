@@ -14,13 +14,12 @@ public class TspScherm extends javax.swing.JFrame {
     int rows = 20;
     int cols = 20;
     private Vak[][] alleVakken;
-    public String vakstring;
+    public String vakstring = "vakken:";
+
     /**
      * Creates new form TspScherm
      */
-    public String vakje;
-
-    {
+    public String vakje() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (alleVakken[row][col].getIsGeselecteerd()) {
@@ -28,6 +27,7 @@ public class TspScherm extends javax.swing.JFrame {
                 }
             }
         }
+        return vakstring;
     }
 
     public TspScherm() {
