@@ -30,13 +30,15 @@ public class MouseListener extends MouseAdapter{
     
     @Override
     public void mousePressed(MouseEvent e) {
-        if (e.getButton() == MouseEvent.BUTTON1) {
+        /*if (e.getButton() == MouseEvent.BUTTON1) {
             int x=e.getX();
             int y=e.getY();
             System.out.println("XY(" + x + ", " + y + ")");
-            grid.berekenVak(x, y);
-        }
+        }*/
         
+        if (e.getButton() == MouseEvent.BUTTON1) {
+            grid.labelPressed((JLabel) e.getSource());
+        }
         
     }
 }

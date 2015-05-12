@@ -8,13 +8,11 @@ package tsp.simulatie;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.FontMetrics;
 
 /**
  *
@@ -25,7 +23,7 @@ public class Grid extends JPanel{
     private Color myColor;
     private int size;
     private Vak[][] alleVakken;
-    int vakSize;
+
     @Override
     public void paintComponent(Graphics g)
     {
@@ -35,51 +33,44 @@ public class Grid extends JPanel{
 	super.paintComponent(g);
         // maak de achtergrond wit
 	setBackground(Color.WHITE);
-        Font font =new Font("Consolas", Font.PLAIN, 11);
-        g.setFont(font);
-        
 	// tekenen.. 
         g.setColor(Color.black);
         for (int row = 0; row < alleVakken.length; row++) {
             for (int col = 0; col < alleVakken[row].length; col++)
                 {
-                    if(alleVakken[row][col].getIsGeselecteerd())
+                    if(col%2 == 0 && row%2 == 1)
                     {
-                        g.setColor(Color.green);
+                        g.setColor(Color.black);
+                    }else if(col%2 == 1 && row%2 == 0)
+                    {
+                        g.setColor(Color.black);
                     }else
                     {
-                        g.setColor(Color.blue);
+                        g.setColor(Color.cyan);
                     }
-                   //System.out.println("x: " + pointX);
+                    //System.out.println("x: " + pointX);
                    // alleVakken[row][col]
-                    g.fillRect(pointX, pointY, pointX + vakSize, pointY + vakSize);
-                    g.setColor(Color.black);
-                    g.drawRect(pointX, pointY, pointX + vakSize, pointY + vakSize);
-                    
-                     
-                    g.setColor(Color.white);
-                    g.drawString(alleVakken[row][col].getLocatie(), pointX+1, pointY+vakSize-1); 
-                    pointX += vakSize;
+                    g.fillRect(pointX, pointY, pointX + 720/alleVakken.length-1, pointY + 720/alleVakken.length-1);
+                    pointX += 720/alleVakken.length;
                     
                     //System.out.println("x1: " + pointX + " |y1: " + pointY + " |x2: " + (pointX + 720/alleVakken.length) + " |y2: " + (pointY + 720/alleVakken.length) + " |size: " + 720/alleVakken.length);
                 }
            // System.out.println("y " + pointY);
-            pointY += vakSize;
+            pointY += 720/alleVakken.length;
             pointX = 0;
         }
     }
     
      public Grid(int rows, int cols, int cellWidth, int Lineborder) {
         //myLabels = new JLabel[rows][cols];
-        
+
         MouseListener myListener = new MouseListener(this);
         Dimension labelPrefSize = new Dimension(cellWidth, cellWidth);
         //setLayout(new GridLayout(rows, cols, Lineborder, Lineborder));
         setBackground(Color.BLACK);
         
         generateVakken(rows);
-        vakSize = 720/alleVakken.length;
-        this.addMouseListener(myListener);
+        
         /*for (int row = 0; row < myLabels.length; row++) {
             for (int col = 0; col < myLabels[row].length; col++) {
                 JLabel myLabel = new JLabel();
@@ -87,7 +78,7 @@ public class Grid extends JPanel{
                 myLabel.setOpaque(true);
                 myColor = Color.BLUE;
                 myLabel.setBackground(myColor);
-                myLabel.
+                myLabel.addMouseListener(myListener);
                 myLabel.setPreferredSize(labelPrefSize);
                 add(myLabel);
                 myLabels[row][col] = myLabel;
@@ -108,39 +99,26 @@ public class Grid extends JPanel{
     }
 
 
-    public void labelPressed(Vak v) {
-        for (int row = 0; row < alleVakken.length; row++) {
-            for (int col = 0; col < alleVakken[row].length; col++) {
-                if (v == alleVakken[row][col]) {
-                    
-                    
+    public void labelPressed(JLabel label) {
+        boolean bool;
+        for (int row = 0; row < myLabels.length; row++) {
+            for (int col = 0; col < myLabels[row].length; col++) {
+                if (label == myLabels[row][col]) {
+                    bool = alleVakken[row][col].getIsGeselecteerd();
+                    label.setText(alleVakken[row][col].getLocatie().toString());
+                    if(!bool)
+                    {
+                        myColor = Color.GREEN;
+                    }else if(bool)
+                    {
+                        myColor = Color.BLUE;
+                    }
                     alleVakken[row][col].isGeselecteerd();
+                    myLabels[row][col].setBackground(myColor);
                     System.out.println(alleVakken[row][col].toString());
                 }
             }
         }
-    }
-    
-    public void berekenVak(int x, int y)
-    {
-       if(x%vakSize != 0)
-       {
-           x -= x%vakSize;
-       }
-       if(y%vakSize != 0)
-       {
-           y -= y%vakSize;
-       }
-       
-       int row = y/vakSize;
-       int col = x/vakSize;
-       
-       Vak vk = alleVakken[row][col];
-       
-       labelPressed(vk);
-       
-       repaint();
-       
     }
     
     public Vak[][] getAlleVakken() {
