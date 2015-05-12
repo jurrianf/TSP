@@ -18,7 +18,7 @@ public class TspScherm extends javax.swing.JFrame {
     /**
      * Creates new form TspScherm
      */
-    public String vakje;
+    public String vakje()
 
     {
         for (int row = 0; row < rows; row++) {
@@ -28,6 +28,8 @@ public class TspScherm extends javax.swing.JFrame {
                 }
             }
         }
+        
+        return vakstring;
     }
 
     public TspScherm() {
@@ -254,8 +256,16 @@ public class TspScherm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    int comboBoxIndexSelected = 0;
+    
     private void jComboBoxSelectAlgoritmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectAlgoritmeActionPerformed
         // TODO add your handling code here:
+        System.out.println(jComboBoxSelectAlgoritme.getSelectedIndex());
+        //volledige enum = 0
+        //nearest neigbour = 1
+        //greedy heurestic = 3
+        
+        comboBoxIndexSelected = jComboBoxSelectAlgoritme.getSelectedIndex();
 
     }//GEN-LAST:event_jComboBoxSelectAlgoritmeActionPerformed
 
@@ -263,20 +273,30 @@ public class TspScherm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Order order = new Order();
         Vak[][] vakken;
-
+        
         vakken = grid.getAlleVakken();
-
+        
         for (int row = 0; row < vakken.length; row++) {
             for (int col = 0; col < vakken[row].length; col++) {
-                if (vakken[row][col].getIsGeselecteerd()) {
+                if(vakken[row][col].getIsGeselecteerd())
+                {
                     order.addVak(vakken[row][col]);
                 }
             }
         }
-
-        Algoritme enumer = new Enumeratie(order);
-        Algoritme greedy = new GreedyHeuristic(order, rows);
-        Algoritme nearest = new NearestNeighbor(order);
+        
+        if(comboBoxIndexSelected == 0)
+        {
+            Algoritme enumer = new Enumeratie(order);
+        }else if(comboBoxIndexSelected == 1)
+        {
+            Algoritme nearest = new NearestNeighbor(order);
+        }else if(comboBoxIndexSelected == 2)
+        {
+            Algoritme greedy = new GreedyHeuristic(order, rows);
+        }else{
+            System.out.println("something went horrible wrong");
+        }
 
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
