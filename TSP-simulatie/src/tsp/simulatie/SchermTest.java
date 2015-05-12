@@ -69,7 +69,7 @@ public class SchermTest extends JFrame{
             }
         }
         
-        greedy = new GreedyHeuristic(order);
+        //greedy = new GreedyHeuristic(order, rows);
     }
 }
     

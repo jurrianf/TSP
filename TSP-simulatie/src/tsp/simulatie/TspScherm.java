@@ -5,12 +5,15 @@ package tsp.simulatie;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author Johan
  */
 public class TspScherm extends javax.swing.JFrame {
 
+    int rows = 20;
+    int cols = 20;
     /**
      * Creates new form TspScherm
      */
@@ -30,8 +33,8 @@ public class TspScherm extends javax.swing.JFrame {
         jToggleButton6 = new javax.swing.JToggleButton();
         int rows = 20;
         int cols = 20;
-        int cellWidth = 20;
         int Lineborder = 1;
+        int cellWidth = 720/(cols+(Lineborder*2));
 
         grid = new Grid(rows, cols, cellWidth, Lineborder);
         jPanelSelecties = grid;
@@ -49,39 +52,29 @@ public class TspScherm extends javax.swing.JFrame {
         jLabelGeselecteerdeVakken = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableStats = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jLabelCord6 = new javax.swing.JLabel();
-        jLabelCord5 = new javax.swing.JLabel();
-        jLabelCord4 = new javax.swing.JLabel();
-        jLabelCord3 = new javax.swing.JLabel();
-        jLabelCord2 = new javax.swing.JLabel();
-        jLabelCord1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabelCordA = new javax.swing.JLabel();
-        jLabelCordB = new javax.swing.JLabel();
-        jLabelCord = new javax.swing.JLabel();
-        jLabelCordD = new javax.swing.JLabel();
-        jLabelCordE = new javax.swing.JLabel();
 
         jToggleButton6.setText("jToggleButton6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 240, 240));
-        setMaximumSize(new java.awt.Dimension(1280, 720));
-        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(480, 360));
+        setPreferredSize(new java.awt.Dimension(1600, 800));
         setResizable(false);
 
+        jPanelSelecties.setBackground(new java.awt.Color(240, 0, 0));
         jPanelSelecties.setForeground(new java.awt.Color(255, 0, 0));
-        jPanelSelecties.setMaximumSize(new java.awt.Dimension(836, 696));
-        jPanelSelecties.setMinimumSize(new java.awt.Dimension(836, 696));
-        jPanelSelecties.setPreferredSize(new java.awt.Dimension(836, 696));
+        jPanelSelecties.setMaximumSize(new java.awt.Dimension(720, 720));
+        jPanelSelecties.setMinimumSize(new java.awt.Dimension(720, 720));
+        jPanelSelecties.setPreferredSize(new java.awt.Dimension(720, 720));
         jPanelSelecties.setVerifyInputWhenFocusTarget(false);
 
+        jPanel2.setBackground(new java.awt.Color(0, 240, 0));
         jPanel2.setForeground(new java.awt.Color(0, 0, 255));
         jPanel2.setAutoscrolls(true);
-        jPanel2.setMaximumSize(new java.awt.Dimension(420, 720));
-        jPanel2.setMinimumSize(new java.awt.Dimension(420, 720));
-        jPanel2.setPreferredSize(new java.awt.Dimension(420, 720));
+        jPanel2.setMaximumSize(new java.awt.Dimension(560, 720));
+        jPanel2.setMinimumSize(new java.awt.Dimension(560, 720));
+        jPanel2.setPreferredSize(new java.awt.Dimension(560, 720));
 
         jComboBoxSelectAlgoritme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Volledige Enumeratie", "Nearest Neighbour", "Greedy Heuristic", " " }));
         jComboBoxSelectAlgoritme.addActionListener(new java.awt.event.ActionListener() {
@@ -112,12 +105,8 @@ public class TspScherm extends javax.swing.JFrame {
         jLabelLaatsteStatistieken.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelLaatsteStatistieken.setText("Laatste Statistieken");
 
+        jTextFieldSelectedVakken.setText("vak, vak, vak, vak");
         jTextFieldSelectedVakken.setEnabled(false);
-        jTextFieldSelectedVakken.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSelectedVakkenActionPerformed(evt);
-            }
-        });
 
         jButtonWisSelectie.setText("Wis selectie");
         jButtonWisSelectie.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +186,7 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelLaatsteStatistieken)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,77 +212,19 @@ public class TspScherm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldSelectedVakken, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonWisSelectie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addComponent(jLabelLaatsteStatistieken)
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(92, 92, 92)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jPanel3.setMaximumSize(new java.awt.Dimension(24, 696));
-        jPanel3.setMinimumSize(new java.awt.Dimension(24, 696));
-        jPanel3.setPreferredSize(new java.awt.Dimension(24, 696));
-        jPanel3.setLayout(new java.awt.GridLayout(6, 0, 0, 6));
-
-        jLabelCord6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord6.setText("6");
-        jPanel3.add(jLabelCord6);
-
-        jLabelCord5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord5.setText("5");
-        jPanel3.add(jLabelCord5);
-
-        jLabelCord4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord4.setText("4");
-        jPanel3.add(jLabelCord4);
-
-        jLabelCord3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord3.setText("3");
-        jPanel3.add(jLabelCord3);
-
-        jLabelCord2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord2.setText("2");
-        jPanel3.add(jLabelCord2);
-
-        jLabelCord1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord1.setText("1");
-        jPanel3.add(jLabelCord1);
-
-        jPanel4.setMaximumSize(new java.awt.Dimension(836, 24));
-        jPanel4.setMinimumSize(new java.awt.Dimension(836, 24));
-        jPanel4.setPreferredSize(new java.awt.Dimension(836, 24));
-        jPanel4.setLayout(new java.awt.GridLayout(1, 5, 6, 0));
-
-        jLabelCordA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCordA.setText("A");
-        jPanel4.add(jLabelCordA);
-
-        jLabelCordB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCordB.setText("B");
-        jPanel4.add(jLabelCordB);
-
-        jLabelCord.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCord.setText("C");
-        jPanel4.add(jLabelCord);
-
-        jLabelCordD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCordD.setText("D");
-        jPanel4.add(jLabelCordD);
-
-        jLabelCordE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCordE.setText("E");
-        jPanel4.add(jLabelCordE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
@@ -301,12 +232,10 @@ public class TspScherm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -320,29 +249,28 @@ public class TspScherm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Order order = new Order();
         Vak[][] vakken;
-
+        
         vakken = grid.getAlleVakken();
-
+        
         for (int row = 0; row < vakken.length; row++) {
             for (int col = 0; col < vakken[row].length; col++) {
-                if (vakken[row][col].getIsGeselecteerd()) {
+                if(vakken[row][col].getIsGeselecteerd())
+                {
                     order.addVak(vakken[row][col]);
                 }
             }
         }
-
-        Algoritme neighbor = new NearestNeighbor(order);
-
-        System.out.println("yolo");
+        
+        Algoritme enumer = new Enumeratie(order);
+        //Algoritme greedy = new GreedyHeuristic(order, rows);
+        //Algoritme nearest = new NearestNeighbor(order);
+        
+        //System.out.println("yolo");
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonWisSelectieActionPerformed
-
-    private void jTextFieldSelectedVakkenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSelectedVakkenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSelectedVakkenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,7 +279,7 @@ public class TspScherm extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -387,24 +315,11 @@ public class TspScherm extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBoxSelectAlgoritme;
     private javax.swing.JLabel jLabelActies;
     private javax.swing.JLabel jLabelAlgoritmeKiezen;
-    private javax.swing.JLabel jLabelCord;
-    private javax.swing.JLabel jLabelCord1;
-    private javax.swing.JLabel jLabelCord2;
-    private javax.swing.JLabel jLabelCord3;
-    private javax.swing.JLabel jLabelCord4;
-    private javax.swing.JLabel jLabelCord5;
-    private javax.swing.JLabel jLabelCord6;
-    private javax.swing.JLabel jLabelCordA;
-    private javax.swing.JLabel jLabelCordB;
-    private javax.swing.JLabel jLabelCordD;
-    private javax.swing.JLabel jLabelCordE;
     private javax.swing.JLabel jLabelGeselecteerdeVakken;
     private javax.swing.JLabel jLabelLaatsteStatistieken;
     private javax.swing.JLabel jLabelSelectedAlgoritme;
     private javax.swing.JLabel jLabeltext1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelSelecties;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableStats;

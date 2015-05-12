@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package tsp.simulatie;
 
 /**
@@ -10,8 +11,7 @@ package tsp.simulatie;
  * @author Johan
  */
 public class Vak {
-
-    boolean isGeselecteerd;
+    private boolean isGeselecteerd;
     private Locatie locatie;
     private int vakVolgorde;
     static private int Groote = 50;
@@ -32,12 +32,14 @@ public class Vak {
     public String getLocatie() {
         return locatie.toString();
     }
-
-    public int getX() {
+    
+    public int getX()
+    {
         return locatie.getX();
     }
-
-    public int getY() {
+    
+    public int getY()
+    {
         return locatie.getY();
     }
 
@@ -53,5 +55,8 @@ public class Vak {
     public String toString() {
         return "Vak{" + "locatie=" + locatie + '}';
     }
+    
+    
 
 }
+

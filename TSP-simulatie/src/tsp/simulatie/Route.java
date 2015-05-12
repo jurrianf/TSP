@@ -14,9 +14,13 @@ import java.util.ArrayList;
  */
 public class Route {
     
-    private ArrayList<Vak> volgorde = new ArrayList<>();
+    private ArrayList<Vak> volgorde;
 
     private int afstand;
+
+    public Route(ArrayList<Vak> volgorde) {
+        this.volgorde = volgorde;
+    }
 
     public int berekenAfstand(ArrayList<Vak> volgorde) {
         int afstand;
