@@ -58,11 +58,11 @@ public class TspScherm extends javax.swing.JFrame {
         jButtonStartSimulatie = new javax.swing.JButton();
         jButtonLogboekTonen = new javax.swing.JButton();
         jLabelLaatsteStatistieken = new javax.swing.JLabel();
-        jTextFieldSelectedVakken = new javax.swing.JTextField();
         jButtonWisSelectie = new javax.swing.JButton();
         jLabelGeselecteerdeVakken = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableStats = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         jToggleButton6.setText("jToggleButton6");
 
@@ -110,8 +110,6 @@ public class TspScherm extends javax.swing.JFrame {
         jLabelLaatsteStatistieken.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelLaatsteStatistieken.setText("Laatste Statistieken");
 
-        jTextFieldSelectedVakken.setEnabled(false);
-
         jButtonWisSelectie.setText("Wis selectie");
         jButtonWisSelectie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +149,8 @@ public class TspScherm extends javax.swing.JFrame {
             jTableStats.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -166,9 +166,9 @@ public class TspScherm extends javax.swing.JFrame {
                             .addComponent(jComboBoxSelectAlgoritme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelAlgoritmeKiezen)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextFieldSelectedVakken, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelGeselecteerdeVakken, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelGeselecteerdeVakken)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonWisSelectie))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -177,7 +177,7 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelLaatsteStatistieken)))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addGap(255, 255, 255))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +197,9 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabelGeselecteerdeVakken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldSelectedVakken, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonWisSelectie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addComponent(jLabelLaatsteStatistieken)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,6 +335,7 @@ public class TspScherm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStartSimulatie;
     private javax.swing.JButton jButtonWisSelectie;
     private javax.swing.JComboBox jComboBoxSelectAlgoritme;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelActies;
     private javax.swing.JLabel jLabelAlgoritmeKiezen;
     private javax.swing.JLabel jLabelGeselecteerdeVakken;
@@ -343,7 +344,6 @@ public class TspScherm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSelecties;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableStats;
-    private javax.swing.JTextField jTextFieldSelectedVakken;
     private javax.swing.JToggleButton jToggleButton6;
     // End of variables declaration//GEN-END:variables
 }
