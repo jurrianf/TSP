@@ -91,6 +91,8 @@ public class Grid extends JPanel{
                 g.drawLine(lijnCords[j-1].getX()*(vakSize)+(vakSize/2), lijnCords[j-1].getY()*(vakSize)+(vakSize/2), lijnCords[j].getX()*(vakSize)+(vakSize/2), lijnCords[j].getY()*(vakSize)+(vakSize/2));
             }
             
+            lijntjes = false;
+            
         }
     }
     

@@ -70,14 +70,16 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         }
         
         volgorder.add(berkenStartPunt(routeVakkenI, routeVakkenJ));
-        for(int i = 1; i <= vakken.size()-1; i++)
+        for(int i = 1; i < vakken.size(); i++)
         {
             volgorder.add(nextVak(volgorder.get(i-1)));
             
-           // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
+           
         }
         
         System.out.println(volgorder.size());
+        
+         System.out.println(volgorder);
         
         afstand = berekenAfstand(volgorder);
         
@@ -160,11 +162,11 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
                     delta = tempDelta;
                     routeVakkenI[index] = v.get(i);
                     routeVakkenJ[index] = curVak;
-                    //System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta +" geplaatst op index: " + index);
+                    System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta +" geplaatst op index: " + index);
                     //System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
                 }
                 
-                //System.out.println("vakken vergeleken: i = " + i + " ,j = " + j);
+                System.out.println("vakken vergeleken: i = " + v.get(i) + " ,j = " + curVak);
             }
         }
         
@@ -174,13 +176,33 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
     private boolean checkIfCompared(Vak vakI, Vak vakJ)
     {
         boolean result = true;
-        
+        boolean var1 = false;
+        boolean var2 = false;
+        boolean var3 = false;
+        boolean var4 = false;
         for(int i = 0; i < index; i++)
         {
-            if(vakI == routeVakkenI[i] || vakJ == routeVakkenJ[i])
+            if(vakJ == routeVakkenI[i])
             {
-                result = false;
+                var1 = true;
             }
+            if(vakJ == routeVakkenJ[i])
+            {
+                var2 = true;
+            }
+           /* if(vakI == routeVakkenI[i])
+            {
+                var3 = true;
+            }
+            if(vakI == routeVakkenJ[i])
+            {
+                var4 = true;
+            }*/
+        }
+        
+        if(var1 && var2 /*&& var3 && var4*/)
+        {
+            result = false;
         }
         
         return result;
