@@ -20,6 +20,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
     Vak vak;
     ArrayList<Vak> vakken;
     ArrayList<Vak> volgorde = new ArrayList<>();
+    int afstand;
 
     @Override
     public void Algoritme(Order order) {
@@ -38,11 +39,35 @@ public class NearestNeighbor extends MyMath implements Algoritme {
 
     public NearestNeighbor(Order order) {
         this.order = order;
-        berekenRoute(order);
         int demensions = (order.getVakken().size());
         routeVakken = new Vak[demensions][demensions];
+        berekenRoute(order);
+        
+        
+        
+        System.out.println(volgorde.size());
+        
+        afstand = berekenAfstand(volgorde);
+        
+        route = new Route(volgorde, afstand);
+        System.out.println(volgorde);
+        
     }
 
+    private int berekenAfstand(ArrayList<Vak> volgorder)
+    {
+        int afstandi = 0;
+        
+        for(int i = 1; i < volgorder.size(); i++)
+        {
+            afstandi += calcDelta(volgorder.get(i-1).getX(), volgorder.get(i-1).getY(), volgorder.get(i).getX(), volgorder.get(i).getY());
+            
+           // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
+        }
+        System.out.println(afstandi);
+        return afstandi;
+    }
+    
     @Override
     public void berekenRoute(Order order) {
         vakken = order.getVakken();
@@ -52,8 +77,11 @@ public class NearestNeighbor extends MyMath implements Algoritme {
             //System.out.println(vak);
 
         }
-        System.out.print(volgorde);
-        System.out.print(vakken);
+        
+        volgorde.add(vakken.get(0));
+        System.out.println(volgorde);
+        System.out.println(vakken);
+        
 
     }
 
@@ -90,5 +118,14 @@ public class NearestNeighbor extends MyMath implements Algoritme {
                 //System.out.println("vakken vergeleken: i = " + i + " ,j = " + j);
             }
         }
+    }
+    
+    private int calcDelta(int x1, int y1, int x2,int y2)
+    {
+        
+        int deltaX = super.delta(x1, x2);
+        int deltaY = super.delta(y1, y2);
+        int tempDelta = deltaX + deltaY;
+        return tempDelta;
     }
 }

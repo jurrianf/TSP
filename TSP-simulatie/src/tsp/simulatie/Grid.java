@@ -25,7 +25,9 @@ public class Grid extends JPanel{
     private Color myColor;
     private int size;
     private Vak[][] alleVakken;
+    ArrayList<Vak> vakken;
     int vakSize;
+    boolean lijntjes = false;
     @Override
     public void paintComponent(Graphics g)
     {
@@ -67,6 +69,36 @@ public class Grid extends JPanel{
             pointY += vakSize;
             pointX = 0;
         }
+        
+        if(lijntjes)
+        {
+            Vak[] lijnCords = new Vak[vakken.size()];
+            g.setColor(Color.red);
+            int i = 0;
+            for(Vak v : vakken)
+            {
+                lijnCords[i] = v;
+                i++;
+            }
+            
+            for(int j = 1; j < lijnCords.length; j++)
+            {
+                if(j == 1)
+                {
+                   g.fillRect(lijnCords[j-1].getX()*(vakSize)+(vakSize/4), lijnCords[j-1].getY()*(vakSize)+(vakSize/4), lijnCords[j-1].getX()*(vakSize)+((vakSize/4)*3), lijnCords[j-1].getY()*(vakSize)+((vakSize/4)*3));
+                }
+                
+                g.drawLine(lijnCords[j-1].getX()*(vakSize)+(vakSize/2), lijnCords[j-1].getY()*(vakSize)+(vakSize/2), lijnCords[j].getX()*(vakSize)+(vakSize/2), lijnCords[j].getY()*(vakSize)+(vakSize/2));
+            }
+            
+        }
+    }
+    
+    public void drawLijnjes(ArrayList<Vak> vakken)
+    {
+        this.vakken = vakken;
+        lijntjes = true;
+        repaint();
     }
     
      public Grid(int rows, int cols, int cellWidth, int Lineborder) {

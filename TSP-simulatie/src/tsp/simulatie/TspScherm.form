@@ -90,13 +90,14 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+        <Property name="alignment" type="int" value="0"/>
+        <Property name="horizontalGap" type="int" value="0"/>
+        <Property name="verticalGap" type="int" value="0"/>
+      </Layout>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="f0" red="0" type="rgb"/>
-        </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
@@ -123,11 +124,6 @@
                               <Component id="jButtonLogboekTonen" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonStartSimulatie" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelActies" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabeltext1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabelSelectedAlgoritme" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="jComboBoxSelectAlgoritme" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelAlgoritmeKiezen" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -160,12 +156,7 @@
                   <Component id="jLabelAlgoritmeKiezen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jComboBoxSelectAlgoritme" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabeltext1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelSelectedAlgoritme" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Component id="jLabelActies" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonStartSimulatie" min="-2" max="-2" attributes="0"/>
@@ -182,8 +173,9 @@
                   </Group>
                   <EmptySpace pref="186" max="32767" attributes="0"/>
                   <Component id="jLabelLaatsteStatistieken" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="101" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -210,16 +202,6 @@
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Acties"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabeltext1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Geselecteerde algoritme:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelSelectedAlgoritme">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="[algoritme]"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelAlgoritmeKiezen">
@@ -283,11 +265,11 @@
             <Component class="javax.swing.JTable" name="jTableStats">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="false" title="Afstand" type="java.lang.Integer"/>
-                    <Column editable="false" title="Algoritme" type="java.lang.String"/>
-                    <Column editable="false" title="Paketten" type="java.lang.Integer"/>
-                    <Column editable="false" title="Dimensies" type="java.lang.Integer"/>
+                  <Table columnCount="4" rowCount="1">
+                    <Column editable="true" title="Afstand" type="java.lang.Integer"/>
+                    <Column editable="true" title="Algoritme" type="java.lang.String"/>
+                    <Column editable="true" title="Paketten" type="java.lang.Integer"/>
+                    <Column editable="true" title="Dimensies" type="java.lang.Integer"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -317,6 +299,7 @@
                 <Property name="editingColumn" type="int" value="0"/>
                 <Property name="editingRow" type="int" value="0"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="rowHeight" type="int" value="44"/>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
