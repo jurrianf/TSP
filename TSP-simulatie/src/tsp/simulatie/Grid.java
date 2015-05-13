@@ -85,7 +85,7 @@ public class Grid extends JPanel{
             {
                 if(j == 1)
                 {
-                   g.fillRect(lijnCords[j-1].getX()*(vakSize)+(vakSize/4), lijnCords[j-1].getY()*(vakSize)+(vakSize/4), lijnCords[j-1].getX()*(vakSize)+((vakSize/4)*3), lijnCords[j-1].getY()*(vakSize)+((vakSize/4)*3));
+                   g.drawLine(0, 720, lijnCords[j-1].getX()*(vakSize)+(vakSize/2), lijnCords[j-1].getY()*(vakSize)+(vakSize/2));
                 }
                 
                 g.drawLine(lijnCords[j-1].getX()*(vakSize)+(vakSize/2), lijnCords[j-1].getY()*(vakSize)+(vakSize/2), lijnCords[j].getX()*(vakSize)+(vakSize/2), lijnCords[j].getY()*(vakSize)+(vakSize/2));
