@@ -18,8 +18,10 @@ public class NearestNeighbor extends MyMath implements Algoritme {
     Route route;
     Vak routeVakken[][];
     Vak vak;
+    int rows;
+    boolean startArrayI;
     ArrayList<Vak> vakken;
-    ArrayList<Vak> volgorde = new ArrayList<>();
+    ArrayList<Vak> volgorder = new ArrayList<>();
     int afstand;
 
     @Override
@@ -42,32 +44,28 @@ public class NearestNeighbor extends MyMath implements Algoritme {
         int demensions = (order.getVakken().size());
         routeVakken = new Vak[demensions][demensions];
         berekenRoute(order);
-        
-        
-        
-        System.out.println(volgorde.size());
-        
-        afstand = berekenAfstand(volgorde);
-        
-        route = new Route(volgorde, afstand);
-        System.out.println(volgorde);
-        
+
+        System.out.println(volgorder.size());
+
+        afstand = berekenAfstand(volgorder);
+
+        route = new Route(volgorder, afstand);
+        System.out.println(volgorder);
+
     }
 
-    private int berekenAfstand(ArrayList<Vak> volgorder)
-    {
+    private int berekenAfstand(ArrayList<Vak> volgorder) {
         int afstandi = 0;
-        
-        for(int i = 1; i < volgorder.size(); i++)
-        {
-            afstandi += calcDelta(volgorder.get(i-1).getX(), volgorder.get(i-1).getY(), volgorder.get(i).getX(), volgorder.get(i).getY());
-            
-           // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
+
+        for (int i = 1; i < volgorder.size(); i++) {
+            afstandi += calcDelta(volgorder.get(i - 1).getX(), volgorder.get(i - 1).getY(), volgorder.get(i).getX(), volgorder.get(i).getY());
+
+            // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
         }
         System.out.println(afstandi);
         return afstandi;
     }
-    
+
     @Override
     public void berekenRoute(Order order) {
         vakken = order.getVakken();
@@ -77,11 +75,8 @@ public class NearestNeighbor extends MyMath implements Algoritme {
             //System.out.println(vak);
 
         }
-        
-        volgorde.add(vakken.get(0));
-        System.out.println(volgorde);
-        System.out.println(vakken);
-        
+
+        volgorder.add(vakken.get(0));
 
     }
 
@@ -90,39 +85,45 @@ public class NearestNeighbor extends MyMath implements Algoritme {
         int y;
         int curX = curVak.getX();
         int curY = curVak.getY();
-        int xy;
         int curXY = curX + curY;
         int delta = 0xFFFFFF;
-        int index = 0;
 
         for (int i = j; i < v.size(); i++) {
-            if (i != j) {
-                x = v.get(i).getX();
-                y = v.get(i).getY();
-                xy = x + y;
-                int tempDelta = super.delta(xy, curXY);
-                if (tempDelta < delta) {
-                    delta = tempDelta;
-                    vak = v.get(i);
-                    index = i;
-                    //System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
-                }
+            x = v.get(i).getX();
+            y = v.get(i).getY();
+            int tempDeltaX = super.delta(x, curX);
+            int tempDeltaY = super.delta(y, curY);
+            int tempDelta = tempDeltaX + tempDeltaY;
+            if (tempDelta < delta) {
+                delta = tempDelta;
+                vak = v.get(i);
+                System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
+            }
 
-                for (int a = 0; a < vakken.size(); a++) {
-                    if (vakken.get(a).equals(curVak)) {
-                        volgorde.add(curVak);
-                        vakken.remove(vakken.get(a));
-                    }
-                }
-
-                //System.out.println("vakken vergeleken: i = " + i + " ,j = " + j);
+        }
+        for (int a = 0; a < vakken.size(); a++) {
+            if (vakken.get(a).equals(curVak)) {
+                volgorder.add(curVak);
+                vakken.remove(vakken.get(a));
             }
         }
+
+    }       //System.out.println("vakken vergeleken: i = " + i + " ,j = " + j);
+
+    private Vak calcBottomLeftMost(Vak vak1, Vak vak2) {
+        int delta1 = calcDelta(vak1.getX(), vak1.getY(), 0, rows);
+        int delta2 = calcDelta(vak2.getX(), vak2.getY(), 0, rows);
+        if (delta1 <= delta2) {
+            startArrayI = true;
+            return vak1;
+        } else {
+            startArrayI = false;
+            return vak2;
+        }
     }
-    
-    private int calcDelta(int x1, int y1, int x2,int y2)
-    {
-        
+
+    private int calcDelta(int x1, int y1, int x2, int y2) {
+
         int deltaX = super.delta(x1, x2);
         int deltaY = super.delta(y1, y2);
         int tempDelta = deltaX + deltaY;

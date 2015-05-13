@@ -22,8 +22,7 @@ public class TspScherm extends javax.swing.JFrame {
     public TspScherm() {
         initComponents();
     }
-    
-    
+
     public String vakje() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -69,9 +68,7 @@ public class TspScherm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 240, 240));
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(480, 360));
-        setPreferredSize(new java.awt.Dimension(1600, 800));
         setResizable(false);
 
         jPanelSelecties.setBackground(new java.awt.Color(240, 0, 0));
@@ -113,7 +110,6 @@ public class TspScherm extends javax.swing.JFrame {
         jLabelLaatsteStatistieken.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelLaatsteStatistieken.setText("Laatste Statistieken");
 
-        jTextFieldSelectedVakken.setText("vak, vak, vak, vak");
         jTextFieldSelectedVakken.setEnabled(false);
 
         jButtonWisSelectie.setText("Wis selectie");
@@ -181,7 +177,7 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelLaatsteStatistieken)))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +199,7 @@ public class TspScherm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldSelectedVakken, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonWisSelectie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addComponent(jLabelLaatsteStatistieken)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,14 +230,14 @@ public class TspScherm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int comboBoxIndexSelected = 0;
-    
+
     private void jComboBoxSelectAlgoritmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectAlgoritmeActionPerformed
         // TODO add your handling code here:
         System.out.println(jComboBoxSelectAlgoritme.getSelectedIndex());
         //volledige enum = 0
         //nearest neigbour = 1
         //greedy heurestic = 3
-        
+
         comboBoxIndexSelected = jComboBoxSelectAlgoritme.getSelectedIndex();
 
     }//GEN-LAST:event_jComboBoxSelectAlgoritmeActionPerformed
@@ -250,57 +246,50 @@ public class TspScherm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Order order = new Order();
         Vak[][] vakken;
-        
+
         vakken = grid.getAlleVakken();
-        
+
         for (int row = 0; row < vakken.length; row++) {
             for (int col = 0; col < vakken[row].length; col++) {
-                if(vakken[row][col].getIsGeselecteerd())
-                {
+                if (vakken[row][col].getIsGeselecteerd()) {
                     order.addVak(vakken[row][col]);
                 }
             }
         }
-        
-        if(comboBoxIndexSelected == 0)
-        {
+
+        if (comboBoxIndexSelected == 0) {
             Algoritme enumer = new Enumeratie(order);
             setValueAt(enumer, "Voledige Enumeratie");
             maakLijntjes(enumer);
-        }else if(comboBoxIndexSelected == 1)
-        {
+        } else if (comboBoxIndexSelected == 1) {
             Algoritme nearest = new NearestNeighbor(order);
             setValueAt(nearest, "nearest Neighbor");
             maakLijntjes(nearest);
-        }else if(comboBoxIndexSelected == 2)
-        {
+        } else if (comboBoxIndexSelected == 2) {
             Algoritme greedy = new GreedyHeuristic(order, rows);
             setValueAt(greedy, "Greedy Heuristic");
             maakLijntjes(greedy);
-        }else{
+        } else {
             System.out.println("something went horrible wrong");
         }
-        
-        
 
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
-    public void maakLijntjes(Algoritme algo)
-    {
+    public void maakLijntjes(Algoritme algo) {
         grid.drawLijnjes(algo.getRoute().getVolgorde());
         //jPanelSelecties.grid.drawLijnjes(algo.getRoute().getVolgorde());
         //jPanelSelecties.repaint();
     }
-    
+
     public void setValueAt(Algoritme algo, String soortAlgo) {
-        
-            jTableStats.setValueAt(algo.getRoute().getAfstand(), 0, 0);
-            jTableStats.setValueAt(soortAlgo, 0, 1);
-            jTableStats.setValueAt(algo.getRoute().getVolgorde().size(), 0, 2);
-            jTableStats.setValueAt(rows, 0, 3);
-        
+
+        jTableStats.setValueAt(algo.getRoute().getAfstand(), 0, 0);
+        jTableStats.setValueAt(soortAlgo, 0, 1);
+        jTableStats.setValueAt(algo.getRoute().getVolgorde().size(), 0, 2);
+        jTableStats.setValueAt(rows, 0, 3);
+
     }
-    
+
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonWisSelectieActionPerformed
