@@ -14,7 +14,7 @@ public class TspScherm extends javax.swing.JFrame {
     int rows = 20;
     int cols = 20;
     private Vak[][] alleVakken;
-    public String vakje = "vakken:";
+    public String vakje = "vakken: ";
 
     /**
      * Creates new form TspScherm
@@ -26,11 +26,12 @@ public class TspScherm extends javax.swing.JFrame {
     public String vakje() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (alleVakken[row][col].getIsGeselecteerd()) {
-                    vakje += alleVakken[row][col];
+                if (grid.alleVakken[row][col].getIsGeselecteerd()) {
+                    vakje += grid.alleVakken[row][col].getLocatie() + ", ";
                 }
             }
         }
+        jLabel1.setText(vakje);
         return vakje;
     }
 
@@ -168,7 +169,7 @@ public class TspScherm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelGeselecteerdeVakken)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonWisSelectie))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -197,7 +198,7 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabelGeselecteerdeVakken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                     .addComponent(jButtonWisSelectie))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addComponent(jLabelLaatsteStatistieken)
@@ -272,6 +273,8 @@ public class TspScherm extends javax.swing.JFrame {
         } else {
             System.out.println("something went horrible wrong");
         }
+
+        vakje();
 
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 

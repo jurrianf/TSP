@@ -24,7 +24,7 @@ public class Grid extends JPanel{
     private JLabel[][] myLabels;
     private Color myColor;
     private int size;
-    private Vak[][] alleVakken;
+    Vak[][] alleVakken;
     ArrayList<Vak> vakken;
     int vakSize;
     boolean lijntjes = false;
