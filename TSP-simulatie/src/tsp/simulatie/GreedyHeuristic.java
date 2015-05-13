@@ -149,7 +149,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
         for(int i = j; i < v.size(); i++)
         {
-            if(i != j && magComparen(v.get(i), curVak))
+            if(i != j && checkIfCompared(v.get(i), curVak))
             {
                 x = v.get(i).getX();
                 y = v.get(i).getY();
