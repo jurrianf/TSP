@@ -14,7 +14,7 @@ public class TspScherm extends javax.swing.JFrame {
     int rows = 20;
     int cols = 20;
     private Vak[][] alleVakken;
-    public String vakstring = "vakken:";
+    public String vakje = "vakken:";
 
     /**
      * Creates new form TspScherm
@@ -27,11 +27,11 @@ public class TspScherm extends javax.swing.JFrame {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (alleVakken[row][col].getIsGeselecteerd()) {
-                    vakstring += alleVakken[row][col];
+                    vakje += alleVakken[row][col];
                 }
             }
         }
-        return vakstring;
+        return vakje;
     }
 
     /**
@@ -149,7 +149,7 @@ public class TspScherm extends javax.swing.JFrame {
             jTableStats.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText(vakje);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -199,7 +199,7 @@ public class TspScherm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonWisSelectie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addComponent(jLabelLaatsteStatistieken)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
