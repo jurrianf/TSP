@@ -149,7 +149,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
         for(int i = j; i < v.size(); i++)
         {
-            if(i != j && checkIfCompared(v.get(i), curVak))
+            if(i != j && magComparen(v.get(i), curVak))
             {
                 x = v.get(i).getX();
                 y = v.get(i).getY();
@@ -173,34 +173,57 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
     }
     
+    private boolean magComparen(Vak vakI, Vak vakJ)
+    {
+        boolean result = true;
+        
+        boolean var1;
+        boolean var2;
+        
+        var1 = checkIfCompared(vakI, vakJ);
+        var2 = checkIfNotDouble(vakI);
+        
+        if(!var1 || !var2)
+        {
+            result = false;         
+        }
+        
+        return result;
+    }
+    
     private boolean checkIfCompared(Vak vakI, Vak vakJ)
     {
         boolean result = true;
-        boolean var1 = false;
-        boolean var2 = false;
+        
+        for(int i = 0; i < index; i++)
+        {
+            if(vakI == routeVakkenI[i] || vakJ == routeVakkenJ[i])
+            {
+                result = false;
+            }
+        }
+        
+        return result;
+    }
+    
+    private boolean checkIfNotDouble(Vak vakI)
+    {
+        boolean result = true;
         boolean var3 = false;
         boolean var4 = false;
         for(int i = 0; i < index; i++)
-        {
-            if(vakJ == routeVakkenI[i])
-            {
-                var1 = true;
-            }
-            if(vakJ == routeVakkenJ[i])
-            {
-                var2 = true;
-            }
-           /* if(vakI == routeVakkenI[i])
+        {          
+           if(vakI == routeVakkenI[i])
             {
                 var3 = true;
             }
             if(vakI == routeVakkenJ[i])
             {
                 var4 = true;
-            }*/
+            }
         }
         
-        if(var1 && var2 /*&& var3 && var4*/)
+        if(var3 && var4)
         {
             result = false;
         }
