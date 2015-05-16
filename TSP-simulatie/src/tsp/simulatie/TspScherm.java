@@ -21,8 +21,6 @@ public class TspScherm extends javax.swing.JFrame {
      */
     public TspScherm() {
         initComponents();
-        MouseListener myListener = new MouseListener(this);
-        this.addMouseListener(myListener);
     }
 
     public String vakje() {
