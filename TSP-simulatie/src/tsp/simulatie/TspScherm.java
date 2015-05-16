@@ -24,6 +24,8 @@ public class TspScherm extends javax.swing.JFrame {
     }
 
     public String vakje() {
+        vakje = "geselecteerd: ";
+
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid.alleVakken[row][col].getIsGeselecteerd()) {
@@ -31,6 +33,7 @@ public class TspScherm extends javax.swing.JFrame {
                 }
             }
         }
+        jLabel1.removeAll();
         jLabel1.setText(vakje);
         return vakje;
     }
@@ -294,7 +297,7 @@ public class TspScherm extends javax.swing.JFrame {
     }
 
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
-        // TODO add your handling code here:
+        TspScherm.this.revalidate();
     }//GEN-LAST:event_jButtonWisSelectieActionPerformed
 
     /**
