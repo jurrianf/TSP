@@ -133,11 +133,15 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
     {
         for(int i = 0; i < v.size(); i++)
         {
-            calcLoop(i, v, v.get(i));
+            calcLoopFrontToBack(i, v, v.get(i));
+            if(index == demensions-1)
+            {
+                calcLoopBackToFront(i, v, v.get(i));
+            }
         }
     }
     
-    private void calcLoop(int j, ArrayList<Vak> v, Vak curVak)
+    private void calcLoopFrontToBack(int j, ArrayList<Vak> v, Vak curVak)
     {
         int x;
         int y;
@@ -157,7 +161,43 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
                 int tempDeltaX = super.delta(x, curX);
                 int tempDeltaY = super.delta(y, curY);
                 int tempDelta = tempDeltaX + tempDeltaY;
-                if(tempDelta < delta)
+                if(tempDelta <= delta)
+                {
+                    delta = tempDelta;
+                    routeVakkenI[index] = v.get(i);
+                    routeVakkenJ[index] = curVak;
+                    System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta +" geplaatst op index: " + index);
+                    //System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
+                }
+                
+                System.out.println("vakken vergeleken: i = " + v.get(i) + " ,j = " + curVak);
+            }
+        }
+        
+        
+    }
+    
+    private void calcLoopBackToFront(int j, ArrayList<Vak> v, Vak curVak)
+    {
+        int x;
+        int y;
+        int curX = curVak.getX();
+        int curY= curVak.getY();
+        int xy;
+        int curXY = curX+curY;
+        Vak vak;
+        
+        for(int i = demensions; i >= 0; i--)
+        {
+            if(i != j && checkIfCompared(v.get(i), curVak))
+            {
+                x = v.get(i).getX();
+                y = v.get(i).getY();
+                xy= x+y;
+                int tempDeltaX = super.delta(x, curX);
+                int tempDeltaY = super.delta(y, curY);
+                int tempDelta = tempDeltaX + tempDeltaY;
+                if(tempDelta <= delta)
                 {
                     delta = tempDelta;
                     routeVakkenI[index] = v.get(i);
@@ -197,10 +237,18 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
         for(int i = 0; i < index; i++)
         {
-            if(vakI == routeVakkenI[i] || vakJ == routeVakkenJ[i])
+            if(vakJ == routeVakkenJ[i])
             {
                 result = false;
             }
+            if(vakI == routeVakkenI[i])
+            {
+                result = false;
+            }
+            /*if(vakJ == routeVakkenI[i])
+            {
+                result = false;
+            }*/
         }
         
         return result;
