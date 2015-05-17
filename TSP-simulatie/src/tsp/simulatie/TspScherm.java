@@ -1,6 +1,7 @@
 package tsp.simulatie;
 
 import javax.swing.table.DefaultTableModel;
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,8 +14,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TspScherm extends javax.swing.JFrame {
 
-    int rows = 20;
-    int cols = 20;
+    static int rows = 20;
+    static int cols = 20;
     private Vak[][] alleVakken;
     public String vakje = "vakken: ";
 
@@ -354,7 +355,7 @@ public class TspScherm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStartSimulatie;
     private javax.swing.JButton jButtonWisSelectie;
     private javax.swing.JComboBox jComboBoxSelectAlgoritme;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelActies;
     private javax.swing.JLabel jLabelAlgoritmeKiezen;
     private javax.swing.JLabel jLabelGeselecteerdeVakken;
