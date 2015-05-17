@@ -78,6 +78,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         }
         
         System.out.println(volgorder.size());
+        System.out.println(demensions);
         
          System.out.println(volgorder);
         
@@ -133,11 +134,22 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
     {
         for(int i = 0; i < v.size(); i++)
         {
+            
             calcLoopFrontToBack(i, v, v.get(i));
-            if(index == demensions-1)
-            {
-                calcLoopBackToFront(i, v, v.get(i));
-            }
+            //if(index == demensions-1)
+            //{
+                
+            //}
+        }
+        for(int i = 0; i < v.size(); i++)
+        {
+            
+            
+            calcLoopBackToFront(i, v, v.get(demensions-i));
+            //if(index == demensions-1)
+            //{
+                
+            //}
         }
     }
     
@@ -161,7 +173,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
                 int tempDeltaX = super.delta(x, curX);
                 int tempDeltaY = super.delta(y, curY);
                 int tempDelta = tempDeltaX + tempDeltaY;
-                if(tempDelta <= delta)
+                if(tempDelta < delta)
                 {
                     delta = tempDelta;
                     routeVakkenI[index] = v.get(i);
@@ -187,9 +199,9 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         int curXY = curX+curY;
         Vak vak;
         
-        for(int i = demensions; i >= 0; i--)
+        for(int i = demensions-j; i >= 0; i--)
         {
-            if(i != j && checkIfCompared(v.get(i), curVak))
+            if(v.get(i) != curVak && checkIfCompared(v.get(i), curVak))
             {
                 x = v.get(i).getX();
                 y = v.get(i).getY();
@@ -197,7 +209,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
                 int tempDeltaX = super.delta(x, curX);
                 int tempDeltaY = super.delta(y, curY);
                 int tempDelta = tempDeltaX + tempDeltaY;
-                if(tempDelta <= delta)
+                if(tempDelta < delta)
                 {
                     delta = tempDelta;
                     routeVakkenI[index] = v.get(i);
@@ -237,18 +249,36 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
         for(int i = 0; i < index; i++)
         {
-            if(vakJ == routeVakkenJ[i])
+            if(index < demensions-1)
             {
-                result = false;
+                if(vakI == routeVakkenJ[i])
+                {
+                    result = false;
+                }
+                if(vakJ == routeVakkenJ[i])
+                {
+                    result = false;
+                }
+                if(vakJ == routeVakkenI[i] && vakI == routeVakkenJ[i])
+                {
+                    result = false;
+                }
+                
+            }else
+            {
+                if(vakI == routeVakkenI[i])
+                {
+                    result = false;
+                }
+                if(vakJ == routeVakkenJ[i])
+                {
+                    result = false;
+                }
+                if(vakJ == routeVakkenJ[i] && vakI == routeVakkenI[i])
+                {
+                    result = false;
+                }
             }
-            if(vakI == routeVakkenI[i])
-            {
-                result = false;
-            }
-            /*if(vakJ == routeVakkenI[i])
-            {
-                result = false;
-            }*/
         }
         
         return result;
@@ -284,11 +314,12 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
        boolean vakGevonden = false;
        Vak vakEen = null;
        Vak vakTwee = null;
+       Locatie loc = new Locatie(0, 20);
        for(int i = 0; i < vakkenI.length; i++)
        {
             for(int j = 0; j < vakkenJ.length; j++)
             {
-                if(vakkenI[i] == vakkenJ[j])
+                if(vakkenI[i].getLocatie() == loc)
                 {
                     vakGevonden = false;
                     break;
@@ -301,7 +332,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
             }
             if(vakGevonden)
             {
-                vakEen = vakkenI[i];
+                vakEen = vakkenJ[i];
                 break;
             }
             
@@ -311,7 +342,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
        {
             for(int i = 0; i < vakkenI.length; i++)
             {
-                if(vakkenJ[j] == vakkenI[i])
+                if(vakkenJ[j].getLocatie() == loc)
                 {
                     vakGevonden = false;
                     break;
@@ -324,7 +355,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
             }
             if(vakGevonden)
             {
-                vakTwee = vakkenJ[j];
+                vakTwee = vakkenI[j];
                 break;
             }
             

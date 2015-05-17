@@ -1,5 +1,7 @@
 package tsp.simulatie;
 
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +23,7 @@ public class TspScherm extends javax.swing.JFrame {
      */
     public TspScherm() {
         initComponents();
+        this.model = (DefaultTableModel) jTableStats.getModel();
     }
 
     public String vakje() {
@@ -90,7 +93,7 @@ public class TspScherm extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(560, 720));
         jPanel2.setPreferredSize(new java.awt.Dimension(560, 720));
 
-        jComboBoxSelectAlgoritme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Volledige Enumeratie", "Nearest Neighbour", "Greedy Heuristic", " " }));
+        jComboBoxSelectAlgoritme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Volledige Enumeratie", "Nearest Neighbour", "Greedy Heuristic" }));
         jComboBoxSelectAlgoritme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSelectAlgoritmeActionPerformed(evt);
@@ -127,7 +130,7 @@ public class TspScherm extends javax.swing.JFrame {
 
         jTableStats.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+
             },
             new String [] {
                 "Afstand", "Algoritme", "Paketten", "Dimensies"
@@ -141,10 +144,11 @@ public class TspScherm extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTableStats.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableStats.setEditingColumn(0);
         jTableStats.setEditingRow(0);
         jTableStats.setEnabled(false);
-        jTableStats.setRowHeight(44);
+        jTableStats.setRowHeight(32);
         jTableStats.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableStats);
         if (jTableStats.getColumnModel().getColumnCount() > 0) {
@@ -161,10 +165,12 @@ public class TspScherm extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelLaatsteStatistieken)
                             .addComponent(jButtonLogboekTonen)
                             .addComponent(jButtonStartSimulatie)
                             .addComponent(jLabelActies)
@@ -173,16 +179,11 @@ public class TspScherm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelGeselecteerdeVakken)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonWisSelectie))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelLaatsteStatistieken)))
-                .addGap(255, 255, 255))
+                                .addComponent(jButtonWisSelectie)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,18 +198,18 @@ public class TspScherm extends javax.swing.JFrame {
                 .addComponent(jButtonStartSimulatie)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogboekTonen)
-                .addGap(59, 59, 59)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabelGeselecteerdeVakken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                     .addComponent(jButtonWisSelectie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(jLabelLaatsteStatistieken)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -238,7 +239,6 @@ public class TspScherm extends javax.swing.JFrame {
 
     private void jComboBoxSelectAlgoritmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectAlgoritmeActionPerformed
         // TODO add your handling code here:
-        System.out.println(jComboBoxSelectAlgoritme.getSelectedIndex());
         //volledige enum = 0
         //nearest neigbour = 1
         //greedy heurestic = 3
@@ -263,14 +263,21 @@ public class TspScherm extends javax.swing.JFrame {
         }
 
         if (comboBoxIndexSelected == 0) {
-            Algoritme enumer = new Enumeratie(order);
-            setValueAt(enumer, "Voledige Enumeratie");
-            maakLijntjes(enumer);
+            if(order.getVakken().size() <= 12)
+            {
+                Algoritme enumer = new Enumeratie(order);
+                setValueAt(enumer, "Voledige Enumeratie");
+                maakLijntjes(enumer);
+            }else
+            {
+            }
         } else if (comboBoxIndexSelected == 1) {
+            order.getVakken().add(0, new Vak(0, 20));
             Algoritme nearest = new NearestNeighbor(order);
             setValueAt(nearest, "nearest Neighbor");
             maakLijntjes(nearest);
         } else if (comboBoxIndexSelected == 2) {
+            order.getVakken().add(0, new Vak(0, 20));
             Algoritme greedy = new GreedyHeuristic(order, rows);
             setValueAt(greedy, "Greedy Heuristic");
             maakLijntjes(greedy);
@@ -288,9 +295,13 @@ public class TspScherm extends javax.swing.JFrame {
         //jPanelSelecties.repaint();
     }
 
+    
+    
     public void setValueAt(Algoritme algo, String soortAlgo) {
 
-        jTableStats.setValueAt(algo.getRoute().getAfstand(), 0, 0);
+        
+        model.addRow(new Object[] {algo.getRoute().getAfstand(), soortAlgo, algo.getRoute().getVolgorde().size(), rows});
+        jTableStats.setValueAt(algo.getRoute().getAfstand(), 0,0);
         jTableStats.setValueAt(soortAlgo, 0, 1);
         jTableStats.setValueAt(algo.getRoute().getVolgorde().size(), 0, 2);
         jTableStats.setValueAt(rows, 0, 3);
@@ -336,6 +347,7 @@ public class TspScherm extends javax.swing.JFrame {
         });
     }
 
+    DefaultTableModel model;
     private Grid grid;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogboekTonen;

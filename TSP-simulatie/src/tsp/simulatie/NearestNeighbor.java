@@ -45,13 +45,9 @@ public class NearestNeighbor extends MyMath implements Algoritme {
         routeVakken = new Vak[demensions][demensions];
         berekenRoute(order);
 
-        System.out.println(volgorder.size());
-
         afstand = berekenAfstand(volgorder);
 
         route = new Route(volgorder, afstand);
-        System.out.println(volgorder);
-
     }
 
     private int berekenAfstand(ArrayList<Vak> volgorder) {
@@ -62,7 +58,6 @@ public class NearestNeighbor extends MyMath implements Algoritme {
 
             // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
         }
-        System.out.println(afstandi);
         return afstandi;
     }
 
@@ -97,7 +92,6 @@ public class NearestNeighbor extends MyMath implements Algoritme {
             if (tempDelta < delta) {
                 delta = tempDelta;
                 vak = v.get(i);
-                System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
             }
 
         }

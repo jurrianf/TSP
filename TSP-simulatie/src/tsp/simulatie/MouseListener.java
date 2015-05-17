@@ -30,7 +30,6 @@ public class MouseListener extends MouseAdapter{
             if (e.getButton() == MouseEvent.BUTTON1) {
                 int x=e.getX();
                 int y=e.getY();
-                System.out.println("XY(" + x + ", " + y + ")");
                 grid.berekenVak(x, y);
                 
             }

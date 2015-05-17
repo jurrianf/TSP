@@ -58,9 +58,14 @@ public class Grid extends JPanel{
                     g.setColor(Color.black);
                     g.drawRect(pointX, pointY, pointX + vakSize, pointY + vakSize);
                     
-                     
-                    g.setColor(Color.white);
-                    g.drawString(alleVakken[row][col].getLocatie(), pointX+1, pointY+vakSize-1); 
+                    if(alleVakken[row][col].getIsGeselecteerd())
+                    {
+                        g.setColor(Color.black);
+                    }else
+                    {
+                        g.setColor(Color.white);
+                    }
+                    g.drawString(alleVakken[row][col].getLocatie().toString(), pointX+1, pointY+vakSize-1); 
                     pointX += vakSize;
                     
                     //System.out.println("x1: " + pointX + " |y1: " + pointY + " |x2: " + (pointX + 720/alleVakken.length) + " |y2: " + (pointY + 720/alleVakken.length) + " |size: " + 720/alleVakken.length);
@@ -98,7 +103,14 @@ public class Grid extends JPanel{
     
     public void drawLijnjes(ArrayList<Vak> vakken)
     {
+        
+        Locatie loc = new Locatie(0, 20);
         this.vakken = vakken;
+        for (int a = 0; a < vakken.size(); a++) {
+            if (vakken.get(a).getLocatie().toString().equals(loc.toString())) {
+                vakken.remove(vakken.get(a));
+            }
+        }
         lijntjes = true;
         repaint();
     }
@@ -149,7 +161,6 @@ public class Grid extends JPanel{
                     
                     
                     alleVakken[row][col].isGeselecteerd();
-                    System.out.println(alleVakken[row][col].toString());
                 }
             }
         }

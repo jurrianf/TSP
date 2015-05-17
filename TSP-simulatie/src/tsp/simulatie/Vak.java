@@ -29,8 +29,8 @@ public class Vak {
         this.isGeselecteerd = !this.isGeselecteerd;
     }
 
-    public String getLocatie() {
-        return locatie.toString();
+    public Locatie getLocatie() {
+        return locatie;
     }
     
     public int getX()

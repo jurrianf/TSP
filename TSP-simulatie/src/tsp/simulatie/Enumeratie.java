@@ -31,14 +31,9 @@ public class Enumeratie extends MyMath implements Algoritme{
             volgorder.add(volgorderAr[i]);
         }
         
-        System.out.println("");
-        
-        System.out.println(volgorder.size());
-        
         afstand = berekenAfstand(volgorder);
         
         route = new Route(volgorder, afstand);
-        System.out.println(volgorder);
         
     }
 
@@ -52,7 +47,6 @@ public class Enumeratie extends MyMath implements Algoritme{
             
            // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
         }
-        System.out.println(afstandi);
         return afstandi;
     }
     
@@ -81,7 +75,6 @@ public class Enumeratie extends MyMath implements Algoritme{
             i++;
         }
         
-        System.out.println(order.getVakken().size() + "! = " + super.fac(order.getVakken().size()));
         berekenPerMogelijkheid(vakken);
         
     }
@@ -92,19 +85,11 @@ public class Enumeratie extends MyMath implements Algoritme{
         Vak vakToMove;
         Vak tempVak;
         int  x = vakken.length;
-        System.out.println(x);
         
         for(int i = 0; i < vakken.length; i++)
         {
             originalVakOrder[i] = vakken[i];
         }
-        
-        for(int l = 0; l < x; l++)
-        {
-            System.out.print(vakken[l].getLocatie().toString());
-        }
-        System.out.println("");
-        System.out.println("");
         
         if(x <= 3)
         {
@@ -117,11 +102,6 @@ public class Enumeratie extends MyMath implements Algoritme{
                     //for(int k = 0; k < x; k++)
                     //{
                         //System.out.println(j + " vak " + vakken[j-1] + " geruild met" + vakken[j]);
-                            for(int l = 0; l < x; l++)
-                            {
-                                System.out.print(vakken[l].getLocatie().toString());
-                            }
-                            System.out.println();
                             
                             if(calcAfstand(vakken) < kortsteAfstand)
                             {
@@ -193,7 +173,6 @@ public class Enumeratie extends MyMath implements Algoritme{
                     }
                 }
         }
-        System.out.println("+");
     }
     
     public void berekenPerMogelijkheid(Vak[] vakken, int x)
@@ -202,7 +181,6 @@ public class Enumeratie extends MyMath implements Algoritme{
         Vak vakToMove;
         Vak tempVak;
         int  y = vakken.length;
-        System.out.println(x);
         
         for(int i = 0; i < vakken.length; i++)
         {
@@ -223,12 +201,7 @@ public class Enumeratie extends MyMath implements Algoritme{
                     
                       if(vakken[j] == vakToMove && j !=0)
                         {
-                          for(int l = 0; l < y; l++)
-                            {
-                               System.out.print(vakken[l].getLocatie().toString());
-                            }
-                            System.out.println();
-                            
+                          
                             if(calcAfstand(vakken) < kortsteAfstand)
                             {
                                 kortsteAfstand = calcAfstand(vakken);
@@ -303,7 +276,6 @@ public class Enumeratie extends MyMath implements Algoritme{
                     
                 }
         }
-       System.out.println("-");
 }
     
     private int calcAfstand(Vak[] v)
