@@ -11,8 +11,8 @@ package tsp.simulatie;
  */
 public class TspScherm extends javax.swing.JFrame {
 
-    int rows = 20;
-    int cols = 20;
+    static int rows = 20;
+    static int cols = 20;
     private Vak[][] alleVakken;
     public String vakje = "vakken: ";
 
@@ -173,7 +173,7 @@ public class TspScherm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelGeselecteerdeVakken)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonWisSelectie))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -202,9 +202,9 @@ public class TspScherm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabelGeselecteerdeVakken)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButtonWisSelectie))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(jLabelLaatsteStatistieken)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,7 +342,7 @@ public class TspScherm extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStartSimulatie;
     private javax.swing.JButton jButtonWisSelectie;
     private javax.swing.JComboBox jComboBoxSelectAlgoritme;
-    private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelActies;
     private javax.swing.JLabel jLabelAlgoritmeKiezen;
     private javax.swing.JLabel jLabelGeselecteerdeVakken;
