@@ -146,7 +146,7 @@ public class TspScherm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Afstand", "Algoritme", "Paketten", "Dimensies"
+                "Afstand", "Algoritme", "Artikelen", "Dimensies"
             }
         ) {
             Class[] types = new Class [] {

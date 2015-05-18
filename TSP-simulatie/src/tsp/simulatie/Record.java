@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tsp.simulatie;
 
 /**
@@ -11,17 +10,18 @@ package tsp.simulatie;
  * @author Johan
  */
 public class Record {
+
     private int afstand;
     private String soortAlgoritme;
-    private int aantalPakketen;
+    private int aantalArtikelen;
     private int dimensies;
     private Order order;
     private Route route;
 
-    public Record(int afstand, String soortAlgoritme, int aantalPakketen, int dimensies, Order order, Route route) {
+    public Record(int afstand, String soortAlgoritme, int aantalArtikelen, int dimensies, Order order, Route route) {
         this.afstand = afstand;
         this.soortAlgoritme = soortAlgoritme;
-        this.aantalPakketen = aantalPakketen;
+        this.aantalArtikelen = aantalArtikelen;
         this.dimensies = dimensies;
         this.order = order;
         this.route = route;
@@ -51,12 +51,12 @@ public class Record {
         this.soortAlgoritme = soortAlgoritme;
     }
 
-    public int getAantalPakketen() {
-        return aantalPakketen;
+    public int getAantalArtikelen() {
+        return aantalArtikelen;
     }
 
-    public void setAantalPakketen(int AantalPakketen) {
-        this.aantalPakketen = AantalPakketen;
+    public void setAantalArtikelen(int AantalArtikelen) {
+        this.aantalArtikelen = AantalArtikelen;
     }
 
     public int getDimensies() {
@@ -69,7 +69,7 @@ public class Record {
 
     @Override
     public String toString() {
-        return "Record{" + "afstand=" + afstand + ", soortAlgoritme=" + soortAlgoritme + ", AantalPakketen=" + aantalPakketen + ", dimensies=" + dimensies + '}';
+        return "Record{" + "afstand=" + afstand + ", soortAlgoritme=" + soortAlgoritme + ", AantalArtikelen=" + aantalArtikelen + ", dimensies=" + dimensies + '}';
     }
-    
+
 }
