@@ -18,6 +18,9 @@ public class TspScherm extends javax.swing.JFrame {
     static int cols = 20;
     private Vak[][] alleVakken;
     public String vakje = "vakken: ";
+    EnumWarning warning = new EnumWarning(this, true);
+    Logboek l = new Logboek();
+    LogScherm logScherm;
 
     /**
      * Creates new form TspScherm
@@ -27,6 +30,12 @@ public class TspScherm extends javax.swing.JFrame {
         this.model = (DefaultTableModel) jTableStats.getModel();
     }
 
+    public Logboek getL() {
+        return l;
+    }
+
+    
+    
     public String vakje() {
 
         vakje = "geselecteerd: ";
@@ -34,7 +43,7 @@ public class TspScherm extends javax.swing.JFrame {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid.alleVakken[row][col].getIsGeselecteerd()) {
-                    vakje += grid.alleVakken[row][col].getLocatie() + ", ";
+                    vakje += "(" + grid.alleVakken[row][col].getLocatie() + "), ";
                 }
             }
         }
@@ -89,7 +98,6 @@ public class TspScherm extends javax.swing.JFrame {
         jPanelSelecties.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
         jPanel2.setForeground(new java.awt.Color(0, 0, 255));
-        jPanel2.setAutoscrolls(true);
         jPanel2.setMaximumSize(new java.awt.Dimension(560, 720));
         jPanel2.setMinimumSize(new java.awt.Dimension(560, 720));
         jPanel2.setPreferredSize(new java.awt.Dimension(560, 720));
@@ -115,6 +123,11 @@ public class TspScherm extends javax.swing.JFrame {
         });
 
         jButtonLogboekTonen.setText("Logboek tonen");
+        jButtonLogboekTonen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogboekTonenActionPerformed(evt);
+            }
+        });
 
         jLabelLaatsteStatistieken.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelLaatsteStatistieken.setText("Laatste Statistieken");
@@ -168,7 +181,7 @@ public class TspScherm extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelLaatsteStatistieken)
@@ -176,14 +189,16 @@ public class TspScherm extends javax.swing.JFrame {
                             .addComponent(jButtonStartSimulatie)
                             .addComponent(jLabelActies)
                             .addComponent(jComboBoxSelectAlgoritme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelAlgoritmeKiezen)
+                            .addComponent(jLabelAlgoritmeKiezen))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelGeselecteerdeVakken)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonWisSelectie)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jLabelGeselecteerdeVakken)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonWisSelectie)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -200,13 +215,16 @@ public class TspScherm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogboekTonen)
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabelGeselecteerdeVakken)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabelGeselecteerdeVakken)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
-                    .addComponent(jButtonWisSelectie))
-                .addGap(38, 38, 38)
+                        .addComponent(jButtonWisSelectie)
+                        .addGap(36, 36, 36))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jLabelLaatsteStatistieken)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +239,7 @@ public class TspScherm extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanelSelecties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -268,19 +286,31 @@ public class TspScherm extends javax.swing.JFrame {
             {
                 Algoritme enumer = new Enumeratie(order);
                 setValueAt(enumer, "Voledige Enumeratie");
+                maakRecord(order, enumer, "Voledige Enumeratie");
                 maakLijntjes(enumer);
             }else
             {
+                warning.setVisible(true);
+                if(warning.isIsOk()) {
+                    Algoritme enumer = new Enumeratie(order);
+                    setValueAt(enumer, "Voledige Enumeratie");
+                    maakRecord(order, enumer, "Voledige Enumeratie");
+                    maakLijntjes(enumer);
+                }else{
+                    
+                }
             }
         } else if (comboBoxIndexSelected == 1) {
             order.getVakken().add(0, new Vak(0, 20));
             Algoritme nearest = new NearestNeighbor(order);
             setValueAt(nearest, "nearest Neighbor");
+            maakRecord(order, nearest, "nearest Neighbor");
             maakLijntjes(nearest);
         } else if (comboBoxIndexSelected == 2) {
             order.getVakken().add(0, new Vak(0, 20));
             Algoritme greedy = new GreedyHeuristic(order, rows);
             setValueAt(greedy, "Greedy Heuristic");
+            maakRecord(order, greedy, "Greedy Heuristic");
             maakLijntjes(greedy);
         } else {
             System.out.println("something went horrible wrong");
@@ -296,22 +326,28 @@ public class TspScherm extends javax.swing.JFrame {
         //jPanelSelecties.repaint();
     }
 
-    
+    void maakRecord(Order order, Algoritme algo, String soortAlgo)
+    {
+        Record record = new Record(algo.getRoute().getAfstand(), soortAlgo, algo.getRoute().getVolgorde().size(), rows, order, algo.getRoute());
+        l.addRecord(record);
+    }
     
     public void setValueAt(Algoritme algo, String soortAlgo) {
 
-        
+        System.out.println(algo.getRoute().getVolgorde());
         model.addRow(new Object[] {algo.getRoute().getAfstand(), soortAlgo, algo.getRoute().getVolgorde().size(), rows});
-        jTableStats.setValueAt(algo.getRoute().getAfstand(), 0,0);
-        jTableStats.setValueAt(soortAlgo, 0, 1);
-        jTableStats.setValueAt(algo.getRoute().getVolgorde().size(), 0, 2);
-        jTableStats.setValueAt(rows, 0, 3);
 
     }
 
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
         TspScherm.this.revalidate();
     }//GEN-LAST:event_jButtonWisSelectieActionPerformed
+
+    private void jButtonLogboekTonenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogboekTonenActionPerformed
+        // TODO add your handling code here:
+        logScherm = new LogScherm(l);
+        logScherm.setVisible(true);
+    }//GEN-LAST:event_jButtonLogboekTonenActionPerformed
 
     /**
      * @param args the command line arguments

@@ -84,6 +84,8 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
         afstand = berekenAfstand(volgorder);
         
+        volgorder.remove(0);
+        
         route = new Route(volgorder, afstand);
         System.out.println(volgorder);
         
@@ -259,6 +261,10 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
                 {
                     result = false;
                 }
+                if(vakI == routeVakkenI[i])
+                {
+                    
+                }
                 if(vakJ == routeVakkenI[i] && vakI == routeVakkenJ[i])
                 {
                     result = false;
@@ -275,6 +281,10 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
                     result = false;
                 }
                 if(vakJ == routeVakkenJ[i] && vakI == routeVakkenI[i])
+                {
+                    result = false;
+                }
+                if(vakJ == routeVakkenI[i] && vakI == routeVakkenJ[i])
                 {
                     result = false;
                 }

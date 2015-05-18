@@ -62,8 +62,8 @@ public class XmlParser extends JFrame {
                         String tempdimensies = eElement.getElementsByTagName("Dimensie").item(0).getTextContent();
                         dimensies = Integer.parseInt(tempAfstand);
 
-                        Record record = new Record(afstand, soortAlgoritme, aantalPakketen, dimensies);
-                        records.add(record);
+                        //Record record = new Record(afstand, soortAlgoritme, aantalPakketen, dimensies);
+                        //records.add(record);
                     }
                 }
                 for(Record r : records)

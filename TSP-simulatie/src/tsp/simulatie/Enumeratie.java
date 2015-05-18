@@ -40,7 +40,7 @@ public class Enumeratie extends MyMath implements Algoritme{
     private int berekenAfstand(ArrayList<Vak> volgorder)
     {
         int afstandi = 0;
-        
+        afstandi += calcDelta(volgorder.get(0).getX(), volgorder.get(0).getY(), 0, 20);
         for(int i = 1; i < volgorder.size(); i++)
         {
             afstandi += calcDelta(volgorder.get(i-1).getX(), volgorder.get(i-1).getY(), volgorder.get(i).getX(), volgorder.get(i).getY());

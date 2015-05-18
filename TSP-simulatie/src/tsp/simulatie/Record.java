@@ -15,12 +15,24 @@ public class Record {
     private String soortAlgoritme;
     private int aantalPakketen;
     private int dimensies;
+    private Order order;
+    private Route route;
 
-    public Record(int afstand, String soortAlgoritme, int AantalPakketen, int dimensies) {
+    public Record(int afstand, String soortAlgoritme, int aantalPakketen, int dimensies, Order order, Route route) {
         this.afstand = afstand;
         this.soortAlgoritme = soortAlgoritme;
-        this.aantalPakketen = AantalPakketen;
+        this.aantalPakketen = aantalPakketen;
         this.dimensies = dimensies;
+        this.order = order;
+        this.route = route;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public Route getRoute() {
+        return route;
     }
 
     public int getAfstand() {

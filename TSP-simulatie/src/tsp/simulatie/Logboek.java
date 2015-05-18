@@ -16,8 +16,6 @@ public class Logboek {
     private ArrayList<Record> records =new ArrayList<>();
 
     public Logboek() {
-        XmlParser p = new XmlParser();
-        records = p.getRecords();
     }
     
     public ArrayList<Record> getRecords() {

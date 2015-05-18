@@ -47,6 +47,8 @@ public class NearestNeighbor extends MyMath implements Algoritme {
 
         afstand = berekenAfstand(volgorder);
 
+        volgorder.remove(0);
+        
         route = new Route(volgorder, afstand);
     }
 

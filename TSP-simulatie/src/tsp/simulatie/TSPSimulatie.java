@@ -23,7 +23,7 @@ public class TSPSimulatie {
      */
     public static void main(String[] args) throws IOException,SAXException{
         // TODO code application logic here
-        Logboek l = new Logboek();
+        
         
         TspScherm scherm = new TspScherm();
         scherm.setVisible(true);
