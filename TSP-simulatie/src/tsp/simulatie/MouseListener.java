@@ -18,7 +18,7 @@ public class MouseListener extends MouseAdapter {
     Grid grid;
     TspScherm scherm;
     boolean schermBool = false;
-    String vakje = "geselecteerd: ";
+    String vakje = "";
 
     public String vakje() {
         int rows;
@@ -28,7 +28,7 @@ public class MouseListener extends MouseAdapter {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid.alleVakken[row][col].getIsGeselecteerd()) {
-                    vakje += grid.alleVakken[row][col].getLocatie() + ", ";
+                    vakje += "( " + grid.alleVakken[row][col].getLocatie() + "), ";
                 }
             }
         }
@@ -46,10 +46,10 @@ public class MouseListener extends MouseAdapter {
             int x = e.getX();
             int y = e.getY();
             grid.berekenVak(x, y);
-            vakje = "geselecteerd: ";
+            vakje = "";
             vakje();
-            TspScherm.jLabel1.removeAll();
-            TspScherm.jLabel1.setText(vakje);
+            TspScherm.jTextArea1.removeAll();
+            TspScherm.jTextArea1.setText(vakje);
 
         }
     }
