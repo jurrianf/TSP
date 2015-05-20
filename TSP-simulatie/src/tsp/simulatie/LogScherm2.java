@@ -18,7 +18,7 @@ public class LogScherm2 extends javax.swing.JDialog {
      */
     public LogScherm2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        l = parent.getL();
+
         initComponents();
     }
 

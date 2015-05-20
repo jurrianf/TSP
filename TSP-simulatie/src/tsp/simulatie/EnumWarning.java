@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tsp.simulatie;
 
 /**
@@ -13,12 +12,13 @@ package tsp.simulatie;
 public class EnumWarning extends javax.swing.JDialog {
 
     boolean isOk;
+
     /**
      * Creates new form EnumWarning
      */
     public EnumWarning(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        
+
         initComponents();
     }
 
@@ -47,9 +47,6 @@ public class EnumWarning extends javax.swing.JDialog {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/warning.png"))); // NOI18N
         jLabel1.setToolTipText("");
-        jLabel1.setMaximumSize(new java.awt.Dimension(128, 128));
-        jLabel1.setMinimumSize(new java.awt.Dimension(128, 128));
-        jLabel1.setPreferredSize(new java.awt.Dimension(128, 128));
 
         jLabel2.setText("<html><p>Je hebt meer dan 12  vakken geselecteerd. bij volledige enumeratie kan dit enkele minuten duren weet je zeker dat je door wilt gaan?</p></html>");
         jLabel2.setToolTipText("");
@@ -78,7 +75,7 @@ public class EnumWarning extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -99,7 +96,7 @@ public class EnumWarning extends javax.swing.JDialog {
                             .addComponent(Doorgaan))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
@@ -109,26 +106,24 @@ public class EnumWarning extends javax.swing.JDialog {
 
     private void DoorgaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoorgaanActionPerformed
         // TODO add your handling code here:
-        
-	isOk = true;
-	
-	setVisible(false);
+
+        isOk = true;
+
+        setVisible(false);
 
     }//GEN-LAST:event_DoorgaanActionPerformed
 
     private void AfbrekenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AfbrekenActionPerformed
         // TODO add your handling code here:
         isOk = false;
-	
-	setVisible(false);
+
+        setVisible(false);
     }//GEN-LAST:event_AfbrekenActionPerformed
 
     public boolean isIsOk() {
         return isOk;
     }
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -136,7 +131,7 @@ public class EnumWarning extends javax.swing.JDialog {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
