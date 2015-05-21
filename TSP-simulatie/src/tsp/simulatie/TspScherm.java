@@ -328,7 +328,7 @@ public class TspScherm extends javax.swing.JFrame {
 
     public void setValueAt(Algoritme algo, String soortAlgo) {
 
-        System.out.println(algo.getRoute().getVolgorde());
+        // System.out.println(algo.getRoute().getVolgorde());
         model.addRow(new Object[]{algo.getRoute().getAfstand(), soortAlgo, algo.getRoute().getVolgorde().size(), rows});
 
     }
