@@ -61,7 +61,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme {
         }
 
         for (int i = 0; i < index; i++) {
-            System.out.println("lijn tussen: " + routeVakkenI[i] + " en " + routeVakkenJ[i] + " index:" + i);
+            // System.out.println("lijn tussen: " + routeVakkenI[i] + " en " + routeVakkenJ[i] + " index:" + i);
         }
 
         volgorder.add(berkenStartPunt(routeVakkenI, routeVakkenJ));
@@ -70,17 +70,15 @@ public class GreedyHeuristic extends MyMath implements Algoritme {
 
         }
 
-        System.out.println(volgorder.size());
-        System.out.println(demensions);
-
-        System.out.println(volgorder);
-
+       // System.out.println(volgorder.size());
+        //System.out.println(demensions);
+       // System.out.println(volgorder);
         afstand = berekenAfstand(volgorder);
 
         volgorder.remove(0);
 
         route = new Route(volgorder, afstand);
-        System.out.println(volgorder);
+        // System.out.println(volgorder);
 
     }
 
@@ -92,7 +90,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme {
 
             // System.out.println("van vak: " + volgorder[i-1].getLocatie() + "naar vak: " + volgorder[i].getLocatie());
         }
-        System.out.println(afstandi);
+        // System.out.println(afstandi);
         return afstandi;
     }
 
@@ -155,11 +153,11 @@ public class GreedyHeuristic extends MyMath implements Algoritme {
                     delta = tempDelta;
                     routeVakkenI[index] = v.get(i);
                     routeVakkenJ[index] = curVak;
-                    System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta + " geplaatst op index: " + index);
+                    //  System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta + " geplaatst op index: " + index);
                     //System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
                 }
 
-                System.out.println("vakken vergeleken: i = " + v.get(i) + " ,j = " + curVak);
+                //  System.out.println("vakken vergeleken: i = " + v.get(i) + " ,j = " + curVak);
             }
         }
 
@@ -186,11 +184,11 @@ public class GreedyHeuristic extends MyMath implements Algoritme {
                     delta = tempDelta;
                     routeVakkenI[index] = v.get(i);
                     routeVakkenJ[index] = curVak;
-                    System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta + " geplaatst op index: " + index);
+                    //   System.out.println("lijn gemaakt tussen " + routeVakkenI[index] + " en " + routeVakkenJ[index] + " met tempdelta: " + tempDelta + " en delta " + delta + " geplaatst op index: " + index);
                     //System.out.println(vak.toString() + "   delta: " + delta + " |i = " + i + " ,j = " + j);
                 }
 
-                System.out.println("vakken vergeleken: i = " + v.get(i) + " ,j = " + curVak);
+                //  System.out.println("vakken vergeleken: i = " + v.get(i) + " ,j = " + curVak);
             }
         }
 
