@@ -29,7 +29,7 @@ public class Grid extends JPanel{
     int vakSize;
     boolean lijntjes = false;
     @Override
-    public void paintComponent(Graphics g)
+    public void paintComponent(Graphics g)// bteken akke vakken met een bepaalde kleur als die wel of niet is geslecteerd
     {
         int pointX = 0;
         int pointY = 0;
@@ -101,7 +101,7 @@ public class Grid extends JPanel{
         }
     }
     
-    public void drawLijnjes(ArrayList<Vak> vakken)
+    public void drawLijnjes(ArrayList<Vak> vakken)// tekend de route aan het eind van een berekening
     {
         
         Locatie loc = new Locatie(0, 20);
@@ -141,7 +141,7 @@ public class Grid extends JPanel{
         }*/
     }
     
-    private void generateVakken(int s)
+    private void generateVakken(int s)//genereerd vakken gebaseerd op de dimensies
     {
         alleVakken = new Vak[s][s];
         for (int row = 0; row < alleVakken.length; row++) {
@@ -154,7 +154,7 @@ public class Grid extends JPanel{
     }
 
 
-    public void labelPressed(Vak v) {
+    public void labelPressed(Vak v) {// select of deselect een vak
         for (int row = 0; row < alleVakken.length; row++) {
             for (int col = 0; col < alleVakken[row].length; col++) {
                 if (v == alleVakken[row][col]) {
@@ -166,7 +166,7 @@ public class Grid extends JPanel{
         }
     }
     
-    public void berekenVak(int x, int y)
+    public void berekenVak(int x, int y)//berken welke vak gebaseerd op de x en y cordinaat die uit de mouse listener worden gehaald
     {
        if(x%vakSize != 0)
        {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Johan
  */
-public class Logboek {
+public class Logboek {//deze class houd een arraylist met records
     private ArrayList<Record> records =new ArrayList<>();
 
     public Logboek() {
@@ -22,7 +22,7 @@ public class Logboek {
         return records;
     }
 
-    public void addRecord(Record record)
+    public void addRecord(Record record)//voeg een record toe aan het logboek
     {
         records.add(record);
     }

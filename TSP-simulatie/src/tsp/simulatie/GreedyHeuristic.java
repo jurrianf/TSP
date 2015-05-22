@@ -52,7 +52,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
     }
 
     @Override
-    public void berekenRoute(Order order) {
+    public void berekenRoute(Order order) {//begint het berken van de route en doet de finishing touch van de berekening
         ArrayList<Vak> vakken = order.getVakken();
         ArrayList<Vak> volgorder = new ArrayList<>();
         
@@ -92,7 +92,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
     }
     
-    private int berekenAfstand(ArrayList<Vak> volgorder)
+    private int berekenAfstand(ArrayList<Vak> volgorder)//berekend de afstand van een route
     {
         int afstandi = 0;
         
@@ -106,7 +106,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         return afstandi;
     }
     
-    private Vak nextVak(Vak curVak)
+    private Vak nextVak(Vak curVak)//bepaald welk vak volgende moet in de route
     {
         Vak vak = null;
         if(startArrayI)
@@ -132,7 +132,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         return vak;
     }
     
-    private void startLoop(ArrayList<Vak> v)
+    private void startLoop(ArrayList<Vak> v)//begind de loop voor de berekening
     {
         for(int i = 0; i < v.size(); i++)
         {
@@ -155,7 +155,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         }
     }
     
-    private void calcLoopFrontToBack(int j, ArrayList<Vak> v, Vak curVak)
+    private void calcLoopFrontToBack(int j, ArrayList<Vak> v, Vak curVak)//bekijt alle mogelijkheden van een vak van de voorkant van de array naar de achterkant
     {
         int x;
         int y;
@@ -191,7 +191,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
     }
     
-    private void calcLoopBackToFront(int j, ArrayList<Vak> v, Vak curVak)
+    private void calcLoopBackToFront(int j, ArrayList<Vak> v, Vak curVak)//bekijt alle mogelijkheden van een vak van de achterkant van de array naar de voorkant
     {
         int x;
         int y;
@@ -227,7 +227,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         
     }
     
-    private boolean magComparen(Vak vakI, Vak vakJ)
+    private boolean magComparen(Vak vakI, Vak vakJ)//controleren of 2 vakken mogen worden vergeleken
     {
         boolean result = true;
         
@@ -245,7 +245,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         return result;
     }
     
-    private boolean checkIfCompared(Vak vakI, Vak vakJ)
+    private boolean checkIfCompared(Vak vakI, Vak vakJ)//controleren of 2 vakken niet al met elkaar zijn vergeleken
     {
         boolean result = true;
         
@@ -294,7 +294,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         return result;
     }
     
-    private boolean checkIfNotDouble(Vak vakI)
+    private boolean checkIfNotDouble(Vak vakI)//kijken of een vak niet dubbel in een list staat
     {
         boolean result = true;
         boolean var3 = false;
@@ -319,7 +319,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         return result;
     }
     
-    private Vak berkenStartPunt(Vak[] vakkenI, Vak[] vakkenJ)
+    private Vak berkenStartPunt(Vak[] vakkenI, Vak[] vakkenJ)//bereken de startpunt van de route
     {
        boolean vakGevonden = false;
        Vak vakEen = null;
@@ -376,7 +376,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
     }
     
     
-    private Vak calcBottomLeftMost(Vak vak1, Vak vak2)
+    private Vak calcBottomLeftMost(Vak vak1, Vak vak2)//vergelijk 2 vakken om te kijken welke het dichste bij links onder zit
     {
         int delta1 = calcDelta(vak1.getX(), vak1.getY(), 0, rows);
         int delta2 = calcDelta(vak2.getX(), vak2.getY(), 0, rows);
@@ -391,7 +391,7 @@ public class GreedyHeuristic extends MyMath implements Algoritme{
         }
     }
     
-    private int calcDelta(int x1, int y1, int x2,int y2)
+    private int calcDelta(int x1, int y1, int x2,int y2)//bereken de delta tussen twee vakken
     {
         
         int deltaX = super.delta(x1, x2);

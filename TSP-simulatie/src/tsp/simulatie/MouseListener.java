@@ -20,7 +20,7 @@ public class MouseListener extends MouseAdapter {
     boolean schermBool = false;
     String vakje = "geselecteerd: ";
 
-    public String vakje() {
+    public String vakje() {//genereer een string van de geselecteerde vakken
         int rows;
         int cols;
         rows = TspScherm.rows;

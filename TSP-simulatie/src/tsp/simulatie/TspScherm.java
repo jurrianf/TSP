@@ -36,7 +36,7 @@ public class TspScherm extends javax.swing.JFrame {
 
     
     
-    public String vakje() {
+    public String vakje() {//genereerd een string met alle geselecteerde vakken
 
         vakje = "geselecteerd: ";
 
@@ -255,7 +255,8 @@ public class TspScherm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     int comboBoxIndexSelected = 0;
-
+    
+    //zorgen dat het systeem weet welk algoritme is geselecteerd
     private void jComboBoxSelectAlgoritmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectAlgoritmeActionPerformed
         // TODO add your handling code here:
         //volledige enum = 0
@@ -266,6 +267,8 @@ public class TspScherm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jComboBoxSelectAlgoritmeActionPerformed
 
+    
+    //begint de berekening door een order te genereren en daarna met die order en het geselecteerde order de berkening uit te voeren
     private void jButtonStartSimulatieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartSimulatieActionPerformed
         // TODO add your handling code here:
         Order order = new Order();
@@ -320,29 +323,32 @@ public class TspScherm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonStartSimulatieActionPerformed
 
-    public void maakLijntjes(Algoritme algo) {
+    public void maakLijntjes(Algoritme algo) {//[tekend de route
         grid.drawLijnjes(algo.getRoute().getVolgorde());
         //jPanelSelecties.grid.drawLijnjes(algo.getRoute().getVolgorde());
         //jPanelSelecties.repaint();
     }
 
-    void maakRecord(Order order, Algoritme algo, String soortAlgo)
+    void maakRecord(Order order, Algoritme algo, String soortAlgo)//maakt een record aan
     {
         Record record = new Record(algo.getRoute().getAfstand(), soortAlgo, algo.getRoute().getVolgorde().size(), rows, order, algo.getRoute());
         l.addRecord(record);
     }
     
-    public void setValueAt(Algoritme algo, String soortAlgo) {
+    public void setValueAt(Algoritme algo, String soortAlgo) {//set een bepaalde value in en tabel
 
         System.out.println(algo.getRoute().getVolgorde());
         model.addRow(new Object[] {algo.getRoute().getAfstand(), soortAlgo, algo.getRoute().getVolgorde().size(), rows});
 
     }
 
+    //deselecd alle geselecteerde vakken
     private void jButtonWisSelectieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWisSelectieActionPerformed
         TspScherm.this.revalidate();
     }//GEN-LAST:event_jButtonWisSelectieActionPerformed
 
+    //toont logboek
+    //TODO: vincent fix logboek
     private void jButtonLogboekTonenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogboekTonenActionPerformed
         // TODO add your handling code here:
         logScherm = new LogScherm(l);

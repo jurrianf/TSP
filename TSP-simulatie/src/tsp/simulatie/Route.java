@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Johan
  */
-public class Route {
+public class Route {//deze class houd een arraylist 
     
     private ArrayList<Vak> volgorde;
 

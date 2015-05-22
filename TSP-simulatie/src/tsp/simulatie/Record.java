@@ -10,7 +10,7 @@ package tsp.simulatie;
  *
  * @author Johan
  */
-public class Record {
+public class Record {// een record houd allerlei releavante informatie per simlatie
     private int afstand;
     private String soortAlgoritme;
     private int aantalPakketen;

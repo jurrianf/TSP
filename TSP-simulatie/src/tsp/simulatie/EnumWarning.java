@@ -12,7 +12,7 @@ package tsp.simulatie;
  */
 public class EnumWarning extends javax.swing.JDialog {
 
-    boolean isOk;
+    boolean isOk;//waar als de enumeratie moet worden gedaan false als de boel moet worden afgebroken
     /**
      * Creates new form EnumWarning
      */
@@ -107,6 +107,7 @@ public class EnumWarning extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //kijken of er op doorgaan of afbreken is gelkikt
     private void DoorgaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoorgaanActionPerformed
         // TODO add your handling code here:
         
@@ -116,6 +117,8 @@ public class EnumWarning extends javax.swing.JDialog {
 
     }//GEN-LAST:event_DoorgaanActionPerformed
 
+    
+    //kijken of er op doorgaan of afbreken is gelkikt
     private void AfbrekenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AfbrekenActionPerformed
         // TODO add your handling code here:
         isOk = false;

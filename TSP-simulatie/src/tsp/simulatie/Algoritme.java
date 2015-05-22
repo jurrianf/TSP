@@ -10,6 +10,8 @@ package tsp.simulatie;
  *
  * @author Johan
  */
+// interface voor de algoritmes
+
 public interface Algoritme {
 
     

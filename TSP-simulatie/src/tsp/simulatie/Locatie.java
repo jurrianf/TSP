@@ -10,7 +10,7 @@ package tsp.simulatie;
  *
  * @author Johan
  */
-public class Locatie {
+public class Locatie {//deze class houd twee ints een x en een y
     private int x;
     private int y;
 

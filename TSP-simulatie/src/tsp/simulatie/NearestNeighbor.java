@@ -52,7 +52,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
         route = new Route(volgorder, afstand);
     }
 
-    private int berekenAfstand(ArrayList<Vak> volgorder) {
+    private int berekenAfstand(ArrayList<Vak> volgorder) {//bereken de afstand van de route
         int afstandi = 0;
 
         for (int i = 1; i < volgorder.size(); i++) {
@@ -64,7 +64,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
     }
 
     @Override
-    public void berekenRoute(Order order) {
+    public void berekenRoute(Order order) {//begin met het berkenen van de 
         vakken = order.getVakken();
         vak = vakken.get(0);
         while (1 < vakken.size()) {
@@ -77,7 +77,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
 
     }
 
-    private void calcLoop(int j, ArrayList<Vak> v, Vak curVak) {
+    private void calcLoop(int j, ArrayList<Vak> v, Vak curVak) {//in deze loop wordt telkens per vakje geken welke het digste bij zit
         int x;
         int y;
         int curX = curVak.getX();
@@ -106,7 +106,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
 
     }       //System.out.println("vakken vergeleken: i = " + i + " ,j = " + j);
 
-    private Vak calcBottomLeftMost(Vak vak1, Vak vak2) {
+    private Vak calcBottomLeftMost(Vak vak1, Vak vak2) {//bereken het vakje dat het dichste bij links onder zit
         int delta1 = calcDelta(vak1.getX(), vak1.getY(), 0, rows);
         int delta2 = calcDelta(vak2.getX(), vak2.getY(), 0, rows);
         if (delta1 <= delta2) {
@@ -118,7 +118,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
         }
     }
 
-    private int calcDelta(int x1, int y1, int x2, int y2) {
+    private int calcDelta(int x1, int y1, int x2, int y2) {//bereken de delta tussen twee vakjes
 
         int deltaX = super.delta(x1, x2);
         int deltaY = super.delta(y1, y2);

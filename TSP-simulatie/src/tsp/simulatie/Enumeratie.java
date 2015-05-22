@@ -17,7 +17,7 @@ public class Enumeratie extends MyMath implements Algoritme{
     private Route route;
     ArrayList<Vak> volgorder;
     Vak[] volgorderAr;
-    int kortsteAfstand = 0xFFFFFF;
+    int kortsteAfstand = 0xFFFFFF;//hoogst mogelijke 
     int afstand;
 
     public Enumeratie(Order order) {
@@ -26,7 +26,7 @@ public class Enumeratie extends MyMath implements Algoritme{
         volgorder = new ArrayList<>();
         berekenRoute(order);
         
-        for(int i = 0; i < volgorderAr.length; i++)
+        for(int i = 0; i < volgorderAr.length; i++)// optimale route in een arraylist plaatsen
         {
             volgorder.add(volgorderAr[i]);
         }
@@ -37,7 +37,7 @@ public class Enumeratie extends MyMath implements Algoritme{
         
     }
 
-    private int berekenAfstand(ArrayList<Vak> volgorder)
+    private int berekenAfstand(ArrayList<Vak> volgorder)//berkend de totale afstand van een route
     {
         int afstandi = 0;
         afstandi += calcDelta(volgorder.get(0).getX(), volgorder.get(0).getY(), 0, 20);
@@ -66,7 +66,7 @@ public class Enumeratie extends MyMath implements Algoritme{
     }
 
     @Override
-    public void berekenRoute(Order order) {
+    public void berekenRoute(Order order) {//begind met het bereken van de optimale route
         Vak[] vakken = new Vak[order.getVakken().size()];
         int i = 0;
         for(Vak v : order.getVakken())
@@ -79,7 +79,7 @@ public class Enumeratie extends MyMath implements Algoritme{
         
     }
     
-    public void berekenPerMogelijkheid(Vak[] vakken)
+    public void berekenPerMogelijkheid(Vak[] vakken)//begint met het berekenen van alke mogelijkheid, deze moet worden aangeroepen vanuit berkenroute
     {
         Vak[] originalVakOrder = new Vak[vakken.length];
         Vak vakToMove;
@@ -175,7 +175,7 @@ public class Enumeratie extends MyMath implements Algoritme{
         }
     }
     
-    public void berekenPerMogelijkheid(Vak[] vakken, int x)
+    public void berekenPerMogelijkheid(Vak[] vakken, int x)//gaat verder met het berekenen van alke mogelijkheid, deze moet worden aangeroepen vanuit berken per mogelijkheid
     {
         Vak[] originalVakOrder = new Vak[vakken.length];
         Vak vakToMove;
@@ -278,7 +278,7 @@ public class Enumeratie extends MyMath implements Algoritme{
         }
 }
     
-    private int calcAfstand(Vak[] v)
+    private int calcAfstand(Vak[] v)//berekend de totale afstand van de heleroute
     {
         int afstand = 0;
         
@@ -292,7 +292,7 @@ public class Enumeratie extends MyMath implements Algoritme{
         return afstand;
     }
         
-    private int calcDelta(int x1, int y1, int x2,int y2)
+    private int calcDelta(int x1, int y1, int x2,int y2)//berekend de afstand(delta) tussen twee vakken
     {
         
         int deltaX = super.delta(x1, x2);

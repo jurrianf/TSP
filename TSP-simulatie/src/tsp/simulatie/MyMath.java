@@ -12,7 +12,7 @@ package tsp.simulatie;
  */
 public abstract class MyMath {
     
-    public int delta(int a, int b)
+    public int delta(int a, int b)//bereken de delta van twee ints
     {
         if(a - b >= 0)
         {
@@ -23,7 +23,7 @@ public abstract class MyMath {
         }
     }
     
-    public long fac(long a)
+    public long fac(long a)//bereken de fakkulteit
     {
         if(a > 20)
         {

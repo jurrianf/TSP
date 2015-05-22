@@ -10,7 +10,7 @@ package tsp.simulatie;
  *
  * @author Johan
  */
-public class Vak {
+public class Vak {//een vak heeft een locatie in het grid een bollean om te kijken of die is geselecteed.
     private boolean isGeselecteerd;
     private Locatie locatie;
     private int vakVolgorde;

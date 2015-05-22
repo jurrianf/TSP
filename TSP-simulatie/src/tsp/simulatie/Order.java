@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Johan
  */
-public class Order {
+public class Order {//deze class houd een arraylist met alle vakken in een order
     private ArrayList<Vak> vakken = new ArrayList<>();
 
     public ArrayList<Vak> getVakken() {

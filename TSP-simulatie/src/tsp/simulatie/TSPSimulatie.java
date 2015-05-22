@@ -16,7 +16,7 @@ import org.xml.sax.SAXException;
  *
  * @author Johan
  */
-public class TSPSimulatie {
+public class TSPSimulatie {// de class met de main, initialiseert het scherm
 
     /**
      * @param args the command line arguments
