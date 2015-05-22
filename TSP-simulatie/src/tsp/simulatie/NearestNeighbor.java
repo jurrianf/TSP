@@ -19,10 +19,10 @@ public class NearestNeighbor extends MyMath implements Algoritme {
     Vak routeVakken[][];
     Vak vak;
     int rows;
+    int afstand;
     boolean startArrayI;
     ArrayList<Vak> vakken;
     ArrayList<Vak> volgorder = new ArrayList<>();
-    int afstand;
 
     @Override
     public void Algoritme(Order order) {
@@ -48,7 +48,7 @@ public class NearestNeighbor extends MyMath implements Algoritme {
         afstand = berekenAfstand(volgorder);
 
         volgorder.remove(0);
-        
+
         route = new Route(volgorder, afstand);
     }
 
